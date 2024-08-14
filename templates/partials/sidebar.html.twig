@@ -1,0 +1,110 @@
+<!-- ========== App Menu ========== -->
+<div class="app-menu navbar-menu">
+    <!-- LOGO -->
+    <div class="navbar-brand-box">
+        <!-- Dark Logo-->
+        <a href="/" class="logo logo-dark">
+            <span class="logo-sm">
+                <img src="{{ asset('images/logo-final.png') }}" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="{{ asset('images/logo-final.png') }}" alt="" height="17">
+            </span>
+        </a>
+        <!-- Light Logo-->
+        <a href="/" class="logo logo-light">
+            <span class="logo-sm">
+                <img src="{{ asset('images/logo-final.png') }}" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="{{ asset('images/logo-final.png') }}" alt="" height="17">
+            </span>
+        </a>
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                id="vertical-hover">
+            <i class="ri-record-circle-line"></i>
+        </button>
+    </div>
+
+    <div id="scrollbar">
+        <div class="container-fluid">
+            <div id="two-column-menu"></div>
+            <ul class="navbar-nav" id="navbar-nav">
+                <li class="menu-title"><span>Menu</span></li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ active is defined and active == 'home' ? 'active' }}" href="{{ path('app_default_index') }}" role="button"
+                       aria-expanded="false"
+                       aria-controls="sidebarLanding">
+                        <i class="ri-home-2-line"></i> <span>Inicio</span>
+                    </a>
+                </li>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ active is defined and active == 'role' ? 'active' }}" href="{{ path('app_role_index') }}" role="button"
+                           aria-expanded="false" aria-controls="sidebarLanding">
+                            <i class="ri-lock-unlock-line"></i> <span>Roles</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ active is defined and active == 'team' ? 'active' }}" href="{{ path('app_team_index') }}" role="button"
+                           aria-expanded="false"
+                           aria-controls="sidebarLanding">
+                            <i class="ri-group-2-line"></i> <span>Equipos</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ active is defined and  active == 'user' ? 'active' }}" href="{{ path('app_user_index') }}" role="button"
+                           aria-expanded="false"
+                           aria-controls="sidebarLanding">
+                            <i class="ri-user-3-line"></i> <span>Usuarios</span>
+                        </a>
+                    </li>
+
+                {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ active is defined and active == 'customer' ? 'active' }}" href="{{ path('app_customer_index') }}" role="button"
+                       aria-expanded="false"
+                       aria-controls="sidebarLanding">
+                        <i class=" ri-user-follow-line"></i> <span>Clientes</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ active is defined and active == 'orden' ? 'active' }}" href="{{ path('app_order_index') }}" role="button"
+                       aria-expanded="false"
+                       aria-controls="sidebarLanding">
+                        <i class="ri-truck-line"></i> <span>Ordenes</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ active is defined and active == 'invoice' ? 'active' }}" href="{{ path('app_invoice_index') }}" role="button"
+                       aria-expanded="false"
+                       aria-controls="sidebarLanding">
+                        <i class="ri-survey-line"></i> <span>Facturas</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ active is defined and active == 'reminder' ? 'active' }}" href="{{ path('app_reminder_index') }}" role="button"
+                       aria-expanded="false"
+                       aria-controls="sidebarLanding">
+                        <i class="ri-calendar-check-line"></i> <span>Panel de tareas</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Sidebar -->
+    </div>
+
+    <div class="sidebar-background"></div>
+</div>
+<!-- Left Sidebar End -->
+<!-- Vertical Overlay-->
+<div class="vertical-overlay"></div>

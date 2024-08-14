@@ -1,0 +1,75 @@
+{% extends 'partials/main.html.twig' %}
+
+{% block content %}
+
+    {{ include('partials/page-title.html.twig', {titlephather: 'Usuarios', pathfather: 'app_user_index', title: 'Editar Usuario'}) }}
+
+    {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-height-100">
+                <div class="card-header d-flex align-items-center">
+                    <h4 class="card-title flex-grow-1 mb-0">Datos personales</h4>
+                </div><!-- end cardheader -->
+                <div class="card-body">
+
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.email) }}
+
+                    <button class="btn btn-sm btn-primary float-end"> <i class="ri-save-line me-1 align-bottom"></i> {{ button_label|default('Guardar') }}</button>
+                    <a href="{{ path('app_user_index') }}" class="btn btn-soft-info btn-sm float-end me-2"> <i
+                                class="ri-arrow-go-back-line me-1 align-bottom"></i> Volver al listado</a>
+
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+        <div class="col-lg-6">
+            <div class="card card-height-100">
+                <div class="card-header d-flex align-items-center">
+                    <h4 class="card-title flex-grow-1 mb-0">Datos de trabajo</h4>
+                </div><!-- end cardheader -->
+                <div class="card-body">
+
+                    {{ form_row(form.role) }}
+                    {{ form_row(form.team) }}
+
+                    <button class="btn btn-sm btn-primary float-end"> <i class="ri-save-line me-1 align-bottom"></i> {{ button_label|default('Guardar') }}</button>
+                    <a href="{{ path('app_user_index') }}" class="btn btn-soft-info btn-sm float-end me-2"> <i
+                                class="ri-arrow-go-back-line me-1 align-bottom"></i> Volver al listado</a>
+
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+        <div class="col-lg-6">
+            <div class="card card-height-100">
+                <div class="card-header d-flex align-items-center">
+                    <h4 class="card-title flex-grow-1 mb-0">Datos de seguridad</h4>
+                </div><!-- end cardheader -->
+                <div class="card-body">
+
+                    {{ form_row(form.password) }}
+
+                    <button class="btn btn-sm btn-primary float-end"> <i class="ri-save-line me-1 align-bottom"></i> {{ button_label|default('Guardar') }}</button>
+                    <a href="{{ path('app_user_index') }}" class="btn btn-soft-info btn-sm float-end me-2"> <i
+                                class="ri-arrow-go-back-line me-1 align-bottom"></i> Volver al listado</a>
+
+                </div><!-- end card body -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+    </div><!-- end row -->
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <!-- prismjs plugin -->
+    <script src="{{ asset('libs/prismjs/prism.js') }}"></script>
+
+    <script src="{{ asset('js/pages/form-validation.init.js') }}"></script>
+
+{% endblock %}

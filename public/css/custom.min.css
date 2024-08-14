@@ -1,0 +1,36 @@
+
+#datatablepage_info {
+    float: left !important;
+}
+
+#datatablepage_length {
+    float: left !important;
+}
+
+.col-form-label {
+    text-align: right !important;
+}
+
+#datatablepage tbody tr.selected {
+    background-color: #f4f6f9 !important;
+}
+
+table.dataTable > tbody > tr.selected > * {
+    box-shadow: none!important;
+    color: #000000!important;
+}
+
+table.dataTable > tbody > tr.selected > * {
+    box-shadow: none!important;
+    color: #000000!important;
+}
+
+.px-20 {
+    padding-right: 20rem!important;
+    padding-left: 20rem!important;
+}
+
+.px-22 {
+    padding-right: 22rem!important;
+    padding-left: 22rem!important;
+}

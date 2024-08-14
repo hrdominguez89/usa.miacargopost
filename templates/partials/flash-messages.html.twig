@@ -1,0 +1,39 @@
+{% for flash_message in app.flashes('notice') %}
+    <div class="alert alert-primary alert-label-icon alert-dismissible fade show" role="alert">
+        <i class="ri-user-smile-line label-icon"></i>
+        {{ flash_message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+{% for flash_message in app.flashes('danger') %}
+    <div class="alert alert-danger alert-label-icon alert-dismissible fade show" role="alert">
+        <i class="ri-error-warning-line label-icon"></i>
+        {{ flash_message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+{% for flash_message in app.flashes('warning') %}
+    <div class="alert alert-warning alert-label-icon alert-dismissible fade show" role="alert">
+        <i class="ri-error-warning-line label-icon"></i>
+        {{ flash_message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+{% for flash_message in app.flashes('success') %}
+    <div class="alert alert-success alert-label-icon alert-dismissible fade show" role="alert">
+        <i class="ri-error-warning-line label-icon"></i>
+        {{ flash_message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+{% for flash_message in app.flashes('info') %}
+    <div class="alert alert-info alert-label-icon alert-dismissible fade show" role="alert">
+        <i class="ri-error-warning-line label-icon"></i>
+        {{ flash_message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
