@@ -15,10 +15,10 @@ security:
             memory:
                 users:
                     # ROLE_SUPER_ADMINISTRATOR
-                    anahuac: { password: '$2y$13$0eW4Mzss9JEwf8k8sWY83umEF9dOG.55PMlPVS4ugrocOSSeE/CPm', roles: ROLE_SUPER_ADMINISTRATOR }
-                    admin: { password: '$2y$13$v4wn/FRXtaERLqR0HTj.LO9PxZ3m0J3nKVf1/FwbOsGUOmDcpPHQm', roles: ROLE_SUPER_ADMINISTRATOR } # admin
+                    anahuac: { password: '$2y$10$sAgZMYfGIuQ5SkgXOoRoeuBcsOQpvVJjORhT0i8I6EiBp/YvUQflC', roles: ROLE_SUPER_ADMINISTRATOR }
+                    admin: { password: '$2y$10$sAgZMYfGIuQ5SkgXOoRoeuBcsOQpvVJjORhT0i8I6EiBp/YvUQflC', roles: ROLE_SUPER_ADMINISTRATOR } # admin
                     # ROLE_API
-                    admin_api: { password: '$2y$13$r.SSLu8Tfv2pGZa78NUZyuzLWkr816NEcY03N9sycEofgAy92LqoS', roles: ROLE_API } # crm2022
+                    admin_api: { password: '$2y$10$sAgZMYfGIuQ5SkgXOoRoeuBcsOQpvVJjORhT0i8I6EiBp/YvUQflC', roles: ROLE_API } # crm2022
 
         app_user_provider:
             entity:
