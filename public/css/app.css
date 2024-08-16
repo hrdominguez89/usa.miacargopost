@@ -12433,13 +12433,16 @@ span.flatpickr-weekday {
 
 .auth-bg-cover {
   background: linear-gradient(-45deg, #5ea3cb 50%, #6ada7d);
+ 
+ 
 }
 .auth-bg-cover > .bg-overlay {
-  background-image: url("../images/cover-pattern.png");
+  background-image: linear-gradient(-45deg,rgb(139 175 189 / 40%),rgb(202 23 189 / 60%)), url(../images/cover-pattern.png);
   background-position: center;
   background-size: cover;
   opacity: 1;
   background-color: transparent;
+  
 }
 .auth-bg-cover .footer {
   color: rgba(255, 255, 255, 0.5);
@@ -15557,3 +15560,4 @@ span.flatpickr-weekday {
 #explorecard-list .list-element:nth-child(-n+10) {
   display: block;
 }
+                                            
