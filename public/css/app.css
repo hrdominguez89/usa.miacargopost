@@ -12440,7 +12440,7 @@ span.flatpickr-weekday {
   background-image: linear-gradient(-45deg,rgb(139 175 189 / 40%),rgb(202 23 189 / 60%)), url(../images/cover-pattern.png);
   background-position: center;
   background-size: cover;
-  opacity: 1;
+  opacity: 0.8;
   background-color: transparent;
   
 }
