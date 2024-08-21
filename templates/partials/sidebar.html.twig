@@ -42,7 +42,7 @@
 
                 {% if is_granted('ROLE_ADMIN') %}
                     <li class="nav-item">
-                        <a class="nav-link menu-link {{ active is defined and active == 'role' ? 'active' }}" href="{{ path('app_role_index') }}" role="button"
+                        <a class="nav-link menu-link {{ active is defined and active == 'dispatch' ? 'active' }}" href="{{ path('app_secure_dispatch_index') }}" role="button"
                            aria-expanded="false" aria-controls="sidebarLanding">
                             <i class="ri-inbox-archive-line"></i> <span>Despachos</span>
                         </a>
