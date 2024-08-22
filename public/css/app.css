@@ -10977,6 +10977,11 @@ div.dtr-modal div.dtr-modal-close {
 div.dtr-modal div.dtr-modal-close:hover {
   background-color: var(--vz-light);
 }
+div.dt-container div.dt-length select {
+  width: auto;
+  display: inline-block;
+  margin-right: .5em;
+}
 
 .dt-buttons button.dt-button,
 .dt-buttons div.dt-button,
