@@ -1,9 +1,9 @@
 knp_snappy:
-    temporary_folder: "%kernel.cache_dir%/snappy"
+    temporary_folder: '%env(resolve:TEMP_DIR)%'
     process_timeout: 20 # In seconds
     pdf:
         enabled:    true
-        binary:     '%env(WKHTMLTOPDF_PATH)%'
+        binary:     '%env(WKHTMLTOPDF_PATH)%'        
         options:
             page-size: A4
             margin-top: 10mm
