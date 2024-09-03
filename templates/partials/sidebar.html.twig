@@ -89,6 +89,14 @@
                         <i class="ri-user-heart-line"></i> <span>Clientes</span>
                     </a>
                 </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ active is defined and active == 'S10' ? 'active' }}" href="{{ path('app_secure_upu') }}" role="button"
+                       aria-expanded="false"
+                       aria-controls="sidebarLanding">
+                        <i class="ri-barcode-fill"></i> <span>Código S10</span>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ active is defined and active == 'reminder' ? 'active' }}" href="{{ path('app_logout') }}" role="button"

@@ -1,0 +1,117 @@
+{% extends 'partials/main.html.twig' %}
+
+{% block stylesheets %}
+
+{{ parent() }}
+
+<!-- jsvectormap css -->
+<link href="{{ asset('libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
+
+<!--Swiper slider css-->
+<link href="{{ asset('libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    {% if s10CodeGenerated is defined and s10CodeGenerated is not null%}
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <h1 class="alert alert-success">
+                {{ s10CodeGenerated.getFormattedNumbercode }}
+            </h1>
+        </div>
+    </div>
+    {% endif %}
+
+    {{form_start(form)}}
+    <div class="row">
+        <div class="col-xl-4">
+            {{ form_label (form.postalProduct) }}
+            {{ form_widget (form.postalProduct) }}
+            {{ form_errors (form.postalProduct)}}
+        </div>
+        <div class="col-xl-4">
+            {{ form_label (form.postalService) }}
+            {{ form_widget (form.postalService) }}
+            {{ form_errors (form.postalService)}}
+        </div>
+        <div class="col-xl-4">
+            {{ form_label (form.country) }}
+            {{ form_widget (form.country) }}
+            {{ form_errors (form.country)}}
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12 d-grid gap-2">
+            {{ form_widget (form.submit) }}
+        </div>
+    </div>
+    {{form_end(form)}}
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+<script>
+    $(document).ready(() => {
+        listenPostalProduct()
+    })
+
+    const listenPostalProduct = () => {
+        let id = $('#s10_code_postalProduct').val();
+        if (id) {
+            getTipoDeServicio(id);
+        }
+        $('#s10_code_postalProduct').on('change', function () {
+            id = $(this).val();
+            getTipoDeServicio(id);
+        });
+    }
+
+
+    const getTipoDeServicio = (id) => {
+        $.ajax({
+            url: '{{ path("app_secure_postal_service") }}',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ id: parseInt(id) }),
+            success: async (res) => {
+                if (res.success) {
+                    postalServices = await res.data;
+                    cleanSelects();
+                    $("#s10_code_postalService").prop("disabled", false);
+                    for (let i = 0; i < postalServices.length; i++) {
+                        const element = postalServices[i];
+                        const option = $("<option></option>").text(element.name);
+                        option.attr("value", element.id);
+                        $("#s10_code_postalService").append(option);
+                    }
+                } else {
+                    cleanSelects(true);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+
+    const cleanSelects = (disable = false) => {
+        const defaultOptionSelect = $("<option></option>").text(
+            "Seleccione un tipo de servicio"
+        );
+        $("#s10_code_postalService").html(defaultOptionSelect);
+        if (disable) {
+            $("#s10_code_postalService").prop("disabled", true);
+        }
+    };
+</script>
+
+
+
+{% endblock %}
