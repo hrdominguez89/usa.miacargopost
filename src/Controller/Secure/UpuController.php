@@ -33,6 +33,8 @@ class UpuController extends AbstractController
                 return $this->redirectToRoute('app_secure_upu');
             }
         }
+        $data['s10codes'] = $s10CodeRepository->findAll();
+
         $data['s10Code'] = new S10Code();
 
         $data['active'] = 'S10';

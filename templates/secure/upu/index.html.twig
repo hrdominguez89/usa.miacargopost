@@ -23,6 +23,8 @@
                 <br>
                 {{ s10CodeGenerated.getFormattedNumbercode }}
             </h1>
+            <a class="btn btn-primary" href="{{ path('app_pdf_cn22', { 's10code_id':s10CodeGenerated.id}) }}">Ver
+                CN22</a>
         </div>
     </div>
     {% endif %}
@@ -51,7 +53,65 @@
         </div>
     </div>
     {{form_end(form)}}
+
+    <div class="row mt-5">
+        <div class="col-xs-12">
+            <table id="s10table" class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Producto
+                        </th>
+                        <th>
+                            Servicio
+                        </th>
+                        <th>
+                            Pais destino
+                        </th>
+                        <th>
+                            Codigo S10
+                        </th>
+                        <th>
+                            Formularios aduana
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s10 in s10codes %}
+
+                    <tr>
+                        <td>
+                            {{s10.id}}
+                        </td>
+                        <td>
+                            {{s10.postalServiceRange.postalService.postalProduct.name}}
+                        </td>
+                        <td>
+                            {{s10.postalServiceRange.postalService.name}}
+                        </td>
+                        <td>
+                            {{s10.country.name}}
+                        </td>
+                        <td>
+                            {{s10.getFormattedNumbercode}}
+                        </td>
+                        <td class="text-center">
+                            <a href="{{ path('app_pdf_cn22', { 's10code_id':s10.id}) }}" class="btn btn-primary">Ver CN22</a>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 </div>
+
 
 {% endblock %}
 
@@ -62,7 +122,16 @@
 <script>
     $(document).ready(() => {
         listenPostalProduct()
+        initDataTable();
     })
+
+    const initDataTable = () => {
+        let table = new DataTable('#s10table', {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/2.1.5/i18n/es-MX.json',
+            },
+        });
+    }
 
     const listenPostalProduct = () => {
         let id = $('#s10_code_postalProduct').val();
@@ -112,8 +181,8 @@
             $("#s10_code_postalService").prop("disabled", true);
         }
     };
+
+
 </script>
-
-
 
 {% endblock %}
