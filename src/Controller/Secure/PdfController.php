@@ -86,4 +86,16 @@ class PdfController extends AbstractController
         $em->persist($s10Code);
         $em->flush();
     }
+
+    #[Route('/cn23/{s10code_id}', name: 'app_pdf_cn23')]
+    public function cn23($s10code_id, S10CodeRepository $s10CodeRepository, EntityManagerInterface $em): Response{
+        $html = $this->renderView('pdf/cn23.html.twig');
+        $options = [
+            'orientation' => 'Landscape',
+        ];
+        $pdfContent = $this->pdf->getOutputFromHtml($html, $options);
+       
+        return new Response($pdfContent, 200, ['Content-Type' => 'application/pdf']);
+    }
+
 }
