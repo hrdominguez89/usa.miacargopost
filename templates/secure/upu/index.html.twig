@@ -23,7 +23,7 @@
                 <br>
                 {{ s10CodeGenerated.getFormattedNumbercode }}
             </h1>
-            <a class="btn btn-primary" href="{{ path('app_pdf_cn22', { 's10code_id':s10CodeGenerated.id}) }}">Ver
+            <a target="_blank" class="btn btn-primary" href="{{ path('app_pdf_cn22', { 's10code_id':s10CodeGenerated.id}) }}">Ver
                 CN22</a>
         </div>
     </div>
@@ -99,7 +99,7 @@
                             {{s10.getFormattedNumbercode}}
                         </td>
                         <td class="text-center">
-                            <a href="{{ path('app_pdf_cn22', { 's10code_id':s10.id}) }}" class="btn btn-primary">Ver CN22</a>
+                            <a target="_blank" href="{{ path('app_pdf_cn22', { 's10code_id':s10.id}) }}" class="btn btn-primary">Ver CN22</a>
                         </td>
                     </tr>
 
