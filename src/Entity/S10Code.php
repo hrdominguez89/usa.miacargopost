@@ -28,6 +28,9 @@ class S10Code
     #[ORM\JoinColumn(nullable: false)]
     private ?Country $country = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $barcodeImage = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -84,5 +87,17 @@ class S10Code
     public function getFormattedNumbercode(): string
     {
         return $this->serviceCode.str_pad($this->numbercode ?? '', 9, '0', STR_PAD_LEFT).$this->country->getIso2();
+    }
+
+    public function getBarcodeImage(): ?string
+    {
+        return $this->barcodeImage;
+    }
+
+    public function setBarcodeImage(?string $barcodeImage): static
+    {
+        $this->barcodeImage = $barcodeImage;
+
+        return $this;
     }
 }

@@ -164,9 +164,8 @@
 			<div
 				class="areacode">
 
-				{# <img class="areacode__img" src="https://png.pngtree.com/png-clipart/20230126/original/pngtree-barcode-with-no-background-png-image_8930886.png" alt="" srcset=""> #}
-				<p class="p p-bold p-code">||||||||||||||||||||||||||||||</p>
-				<p class="p p-bold">MP827525984RO</p>
+                <img src="{{ app.request.schemeAndHttpHost ~ asset(s10code.barcodeImage) }}" alt="Código de Barras S10">
+				<p class="p p-bold">{{ s10code.getFormattedNumbercode }}</p>
 
 			</div>
 			<div class="padding-all-025">

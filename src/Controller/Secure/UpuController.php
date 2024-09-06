@@ -4,10 +4,10 @@ namespace App\Controller\Secure;
 
 use App\Entity\S10Code;
 use App\Form\S10CodeType;
-use App\Repository\PostalServiceRangeRepository;
 use App\Repository\PostalServiceRepository;
 use App\Repository\S10CodeRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Picqer\Barcode\BarcodeGeneratorPNG;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +28,9 @@ class UpuController extends AbstractController
                     $em->persist($data['s10CodeGenerated']);
                     $em->flush($data['s10CodeGenerated']);
                 }
+                $this->generateBarcodeImage($data['s10CodeGenerated'], $em);
+            } else {
+                return $this->redirectToRoute('app_secure_upu');
             }
         }
         $data['s10Code'] = new S10Code();
@@ -48,6 +51,8 @@ class UpuController extends AbstractController
             $em->flush();
 
             $data['s10Code']->setNumbercode($this->generateCode($data['s10Code']->getId(), $s10CodeRepository));
+
+            $this->generateBarcodeImage($data['s10Code'], $em);
 
             $em->persist($data['s10Code']);
             $em->flush();
@@ -114,5 +119,27 @@ class UpuController extends AbstractController
             $digito_de_seguridad = 0;
         }
         return $numbers . $digito_de_seguridad;
+    }
+
+    private function generateBarcodeImage(S10Code $s10Code, EntityManagerInterface $em): void
+    {
+        // Definir la ruta del archivo en la carpeta /public/barcodes/s10/
+        $codigoS10 = $s10Code->getFormattedNumbercode();
+        $rutaArchivo = $this->getParameter('kernel.project_dir') . '/public/barcodes/s10/' . $codigoS10 . '.png';
+
+        // Generar código de barras con picqer/php-barcode-generator (Code128)
+        $generator = new BarcodeGeneratorPNG();
+        $codigoBarras = $generator->getBarcode($codigoS10, $generator::TYPE_CODE_128);
+
+        // Guardar la imagen en la carpeta /public/barcodes/s10/
+        file_put_contents($rutaArchivo, $codigoBarras);
+
+        // Actualizar la entidad S10Code para guardar la ruta de la imagen
+        $rutaRelativa = '/barcodes/s10/' . $codigoS10 . '.png';
+        $s10Code->setBarcodeImage($rutaRelativa);
+
+        // Persistir los cambios
+        $em->persist($s10Code);
+        $em->flush();
     }
 }
