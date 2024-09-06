@@ -28,8 +28,14 @@
 			.p-bold {
 				font-weight: bold;
 			}
-			.p-code {
-				font-size: 1.5em;
+			.img-code {
+				width: 100px;
+				height: 20px;
+				padding-top: 5px;
+			}
+			.p-size-code{
+				font-size: .9em;
+                
 			}
 			.areacode {
 				padding: 0.2em 0;
@@ -164,8 +170,8 @@
 			<div
 				class="areacode">
 
-                <img src="{{ app.request.schemeAndHttpHost ~ asset(s10code.barcodeImage) }}" alt="Código de Barras S10">
-				<p class="p p-bold">{{ s10code.getFormattedNumbercode }}</p>
+                <img class="img-code" src="{{ app.request.schemeAndHttpHost ~ asset(s10code.barcodeImage) }}" alt="Código de Barras S10">
+				<p class="p p-bold p-size-code">{{ s10code.getFormattedNumbercode }}</p>
 
 			</div>
 			<div class="padding-all-025">
@@ -251,12 +257,12 @@
 				</tbody>
 			</table>
 			<div class="descriptiosform">
-				<p class="p p-bold padding-all-025">
-					El infrascrito, cuyo nombre y dirección fi guran en el envío, certifi ca
+				<p class="p p-bold padding-all-025 p-size-code">
+					El infrascrito, cuyo nombre y dirección figuran en el envío, certifica
 					que la información dada en la presente declaración es exacta y que
 					este envío no contiene ningún objeto peligroso o prohibido por la
 					legislación o por la reglamentación postal o aduanera
-					Fecha y fi rma del expedidor (8)
+					Fecha y firma del expedidor (8)
 				</p>
 			</div>
 		</div>
