@@ -78,7 +78,7 @@ class UpuController extends AbstractController
             }
 
             // Buscar el usuario por ID
-            $postalServices = $postalServiceRepository->findBy(['postalProduct' => $id, 'requiresBilateralAgreement' => false]);
+            $postalServices = $postalServiceRepository->findBy(['postalProduct' => $id]);
 
             // Verificar si existen servicios postales
             if (!$postalServices) {
