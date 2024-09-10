@@ -89,7 +89,38 @@ class PdfController extends AbstractController
 
     #[Route('/cn23/{s10code_id}', name: 'app_pdf_cn23')]
     public function cn23($s10code_id, S10CodeRepository $s10CodeRepository, EntityManagerInterface $em): Response{
-        $html = $this->renderView('pdf/cn23.html.twig');
+         // Ruta absoluta de la imagen en el servidor
+        $imagePath = $this->getParameter('kernel.project_dir') . '/public/images/logoems.png';
+        $imagePathCode = $this->getParameter('kernel.project_dir') . '/public/images/code.png';
+        
+        // Convertir la imagen a base64
+        if (file_exists($imagePath)) {
+            $base64Image = base64_encode(file_get_contents($imagePath));
+        } else {
+            $base64Image = null; // Manejo de errores si la imagen no se encuentra
+        }
+        if (file_exists($imagePathCode)) {
+            $base64ImageCode = base64_encode(file_get_contents($imagePathCode));
+        } else {
+            $base64ImageCode = null; // Manejo de errores si la imagen no se encuentra
+        }
+
+        $data['s10code'] = $s10CodeRepository->find($s10code_id);
+        if ($data['s10code']) {
+            if (!$data['s10code']->getNumbercode()) {
+                $data['s10code']->setNumbercode($this->generateCode($s10code_id, $s10CodeRepository));
+                $em->persist($data['s10code']);
+                $em->flush($data['s10code']);
+            }
+            $this->generateBarcodeImage($data['s10code'], $em);
+        } else {
+            return $this->redirectToRoute('app_secure_upu');
+        }
+        
+        $html = $this->renderView('pdf/cn23.html.twig',[
+            'base64Image' => $base64Image,
+            'base64ImageCode' => $base64ImageCode,            
+        ]);        
         $options = [
             'orientation' => 'Landscape',
         ];
