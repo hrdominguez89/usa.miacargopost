@@ -103,9 +103,9 @@
 						<p style="padding: 0; margin:0; ">Name of the designated operator</p>
 					</td>
 					<td style="background-color:red; vertical-align:top;">
-						<img src="data:image/png;base64,{{ base64ImageCode }}" alt="Logo EMS"
+						<img src="{{ app.request.schemeAndHttpHost ~ asset(s10code.barcodeImage) }}" alt="Logo EMS"
 							style="width: 250px; height: 50px; ">
-						<p style="font-size: 18px; padding: 0 0 0 18px; margin:0; font-weight:600">E E 0 0 2 8 7 4 443DO
+						<p style="font-size: 18px; padding: 0 0 0 18px; margin:0; font-weight:600">{{ s10code.getFormattedNumbercode[:2]~' '~s10code.getFormattedNumbercode[2:3]~' '~s10code.getFormattedNumbercode[5:3]~' '~s10code.getFormattedNumbercode[8:3]~' '~s10code.getFormattedNumbercode[11:2] }}
 						</p>
 						<p style="font-size: 12px; padding: 0 0 0 22px; margin:0">May be opened officially</p>
 					</td>
@@ -131,7 +131,7 @@
 						colspan="2">
 						<p style="font-size:14px; padding: 0; margin:5px 0 0 18px;">Importer's telephone/fax/e-mail (if
 							known)</p>
-						<p style="font-size:16px; font-weight:600; padding: 0; margin:0 0 0px 18px;">1234567890</p>
+						<p style="font-size:16px; font-weight:600; padding: 0; margin:0 0 0px 18px;">{{s10code.getFormattedNumbercode}}</p>
 					</td>
 				</tr>
 			</tbody>

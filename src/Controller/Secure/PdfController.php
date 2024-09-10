@@ -95,9 +95,9 @@ class PdfController extends AbstractController
         
         // Convertir la imagen a base64
         if (file_exists($imagePath)) {
-            $base64Image = base64_encode(file_get_contents($imagePath));
+            $data['base64Image'] = base64_encode(file_get_contents($imagePath));
         } else {
-            $base64Image = null; // Manejo de errores si la imagen no se encuentra
+            $data['base64Image'] = null; // Manejo de errores si la imagen no se encuentra
         }
         if (file_exists($imagePathCode)) {
             $base64ImageCode = base64_encode(file_get_contents($imagePathCode));
@@ -117,10 +117,7 @@ class PdfController extends AbstractController
             return $this->redirectToRoute('app_secure_upu');
         }
         
-        $html = $this->renderView('pdf/cn23.html.twig',[
-            'base64Image' => $base64Image,
-            'base64ImageCode' => $base64ImageCode,            
-        ]);        
+        $html = $this->renderView('pdf/cn23.html.twig',$data);        
         $options = [
             'orientation' => 'Landscape',
         ];
