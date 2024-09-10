@@ -5,65 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Formulario Aduana CN23</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 0;
-
-		}
-
-		.container {
-			width: 1078px;
-			height: 745px;
-			border: 1px solid #000;
-			margin: 0 auto;
-
-
-			/* background-color: aqua; */
-
-
-		}
-
-		.inlBlock {
-			display: inline-block;
-		}
-
-		.reset {
-			margin: 0;
-			padding: 0;
-		}
-
-		.bold-800 {
-			font-weight: bold;
-		}
-
-		.uppercase {
-			text-transform: uppercase;
-		}
-
-		.size-12px {
-			font-size: 12px;
-		}
-
-		.size-20px {
-			font-size: 20px;
-		}
-
-		.text-right {
-			text-align: right;
-		}
-
-		.p-operador {
-			margin-left: 90px;
-			margin-top: 10px;
-			font-size: 10px;
-		}
-
-		.h1-title {
-			margin-left: 250px;
-		}
-	</style>
+	
 </head>
 
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
@@ -71,21 +13,7 @@
 	<div style="width:auto; ">
 
 
-		{# <div style="display: inline-block;">
-			{% if base64Image %}
-			<img src="data:image/png;base64,{{ base64Image }}" alt="Logo EMS" style="width: 380px; height: 30px;">
-			{% else %}
-			<p>La imagen no se pudo cargar.</p>
-			{% endif %}
-			<h1 style="padding: 0; margin:5px 0 5px 0 ; font-size:22px">CUSTOMS DECLARATION</h1>
-			<P style="padding: 0; margin:0;">Name of the designated operator</P>
-			<P style="padding: 0; margin:0; font-size:18px; font-weight:600 ">MiaCargoPost</P>
-
-		</div>
-		<div style="display: inline-block; background-color:red; width: auto; height: 80px; ">
-			<p style="padding: 0; margin:0;">Date</p>
-			<p style="padding: 0; margin:0; font-size:18px; font-weight:600 ">2021-12-12</p>
-		</div> #}
+	
 
 		{# Header Form #}
 		<table style=" width: 100%; border-collapse: collapse;">
@@ -327,34 +255,68 @@
 
 			</table>
 			{# Category of item #}
-			<table style="border-collapse: collapse; width:83.2%; border-right:1px #000 solid;">
+			<table style="border-collapse: collapse; width:96.6%; border-right:1px #000 solid;">
 				<tr>
 					<td style="width: 44px;"></td>
 					<td style="border-left: 1px #000 solid; width:1px"></td>
-					<td style="border-right: 1px #000 solid; vertical-align:middle   " >Category of item</td>
+					<td style="border-right: 1px #000 solid; vertical-align:middle; width:199px;" >Category of item</td>
 					<td style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:6px;"></td>
-					<td style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle" >Commercial sample</td>
+					<td style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle; width:180px; " >Commercial sample</td>
 					<td style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:6px;"></td>
-					<td style="padding-left: 5px; vertical-align:middle">Sales of goods</td>
+					<td style="padding-left: 5px; vertical-align:middle; ">Sales of goods</td>
 				</tr>
 				<tr>
 					<td style="width: 44px;"></td>					
 					<td style="width: 20px; border:1px #000 solid"></td>
 					<td style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle" >Gift</td>
 					<td style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:5px;"></td>
-					<td style="padding-left: 5px; vertical-align:middle; " >Returned goods</td>
+					<td style="padding-left: 5px; vertical-align:middle;" colspan="3" >Returned goods</td>
 				</tr>
 				<tr>
 					<td style="width: 44px;"></td>					
 					<td style="width: 20px; border:1px #000 solid"></td>
-					<td style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle" >Documents</td>
+					<td style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle; border-bottom:1px #000 solid;" >Documents</td>
 					<td style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:5px;"></td>
-					<td style="padding-left: 5px; vertical-align:middle;">Other</td>
-					<td style="width: 20px;"></td>
-					<td>Explanation:</td>
+					<td style="padding-left: 5px; vertical-align:middle; border-bottom:1px #000 solid;">Other</td>
+					<td style="width: 20px; border-bottom:1px #000 solid;"></td>
+					<td style="border-bottom:1px #000 solid;">Explanation:</td>
+				</tr>
+				{# Comments #}
+				<tr>
+					<td style="width: 44px;"></td>
+					<td style="height: 40px; vertical-align:top; padding-left:5px; border-left: 1px #000 solid; border-bottom: 1px #000 solid;" colspan="6">Comments:</td>                    
+                    
+				</tr>
+				{# Licence #}
+				<tr></tr>
+					<td style="width: 44px;"></td>					
+					<td style="width: 20px; border:1px #000 solid"></td>
+					<td style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle; border-bottom:1px #000 solid;" >Licence</td>
+					<td style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:5px;"></td>
+					<td style="padding-left: 5px; vertical-align:middle; border-bottom:1px #000 solid;">Certificate</td>
+					<td style="width: 20px; border:1px #000 solid;"></td>
+					<td style="border-bottom:1px #000 solid;">Invoice</td>
+				</tr>
+				<tr>
+					<td style="width: 44px;"></td>
+					<td style="height:40px; border-right: 1px #000 solid; border-left: 1px #000 solid; padding-left:5px; vertical-align:top; border-bottom:1px #000 solid;" colspan="2" >No(s). of licence(s)</td>
+					<td style="border-right: 1px #000 solid; border-left: 1px #000 solid; padding-left:5px; vertical-align:top; border-bottom:1px #000 solid;" colspan="2" >No(s). of certificate(s)</td>
+					<td style="border-right: 1px #000 solid; border-left: 1px #000 solid; padding-left:5px; vertical-align:top; border-bottom:1px #000 solid;" colspan="2" >No(s). of invoice</td>                   
+                    
+				</tr>
+				<tr>
+					<td style="width: 44px;"></td>
+					<td style="height: 45px; vertical-align:top; padding-left:5px; border-left: 1px #000 solid; " colspan="6">I certify that the particulars given in this customs are correct and that this item does not contain any dangerous article prohibited by legislation or by postal or customs regulations.</td>                    
+                    		
+				</tr>
+				<tr>
+					<td style="width: 44px;"></td>
+					<td style="padding-left:5px; height:40px; border-left: 1px #000 solid; border-bottom:1px #000 solid; vertical-align:top;" colspan="3" >Date and signature</td>					
+                    <td style="padding-left:5px; border-bottom:1px #000 solid; vertical-align:top;" colspan="3" >Declaration ID</td>			
 				</tr>
 
 			</table>
+			<span style="font-size: 8px;  margin:0; padding:0 0 0 60px;">© Universal Postal Union, CDS</span>
 		</div>
 	</div>
 
