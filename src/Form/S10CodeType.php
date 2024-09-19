@@ -46,7 +46,7 @@ class S10CodeType extends AbstractType
                     new NotBlank(['message' => 'El campo tipo de servicio es obligatorio']),
                 ]
             ])
-            ->add('country', EntityType::class, [
+            ->add('toCountry', EntityType::class, [
                 'placeholder' => 'Seleccione pais de destino',
                 'label' => 'País destino',
                 'class'  => Country::class,

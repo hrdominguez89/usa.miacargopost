@@ -33,12 +33,20 @@ class Country
     #[ORM\Column(length: 5)]
     private ?string $currencySign = null;
 
-    #[ORM\OneToMany(mappedBy: 'country', targetEntity: S10Code::class)]
-    private Collection $s10Codes;
+    #[ORM\OneToMany(mappedBy: 'fromCountry', targetEntity: S10Code::class)]
+    private Collection $s10CodesFrom;
+
+    #[ORM\OneToMany(mappedBy: 'toCountry', targetEntity: S10Code::class)]
+    private Collection $s10codesTo;
+
+    #[ORM\OneToMany(mappedBy: 'countryOfOriginOfGoods', targetEntity: ItemDetail::class)]
+    private Collection $itemDetails;
 
     public function __construct()
     {
-        $this->s10Codes = new ArrayCollection();
+        $this->s10CodesFrom = new ArrayCollection();
+        $this->s10codesTo = new ArrayCollection();
+        $this->itemDetails = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -109,27 +117,87 @@ class Country
     /**
      * @return Collection<int, S10Code>
      */
-    public function getS10Codes(): Collection
+    public function getS10CodesFrom(): Collection
     {
-        return $this->s10Codes;
+        return $this->s10CodesFrom;
     }
 
-    public function addS10Code(S10Code $s10Code): static
+    public function addS10CodesFrom(S10Code $s10CodesFrom): static
     {
-        if (!$this->s10Codes->contains($s10Code)) {
-            $this->s10Codes->add($s10Code);
-            $s10Code->setCountry($this);
+        if (!$this->s10CodesFrom->contains($s10CodesFrom)) {
+            $this->s10CodesFrom->add($s10CodesFrom);
+            $s10CodesFrom->setFromCountry($this);
         }
 
         return $this;
     }
 
-    public function removeS10Code(S10Code $s10Code): static
+    public function removeS10CodesFrom(S10Code $s10CodesFrom): static
     {
-        if ($this->s10Codes->removeElement($s10Code)) {
+        if ($this->s10CodesFrom->removeElement($s10CodesFrom)) {
             // set the owning side to null (unless already changed)
-            if ($s10Code->getCountry() === $this) {
-                $s10Code->setCountry(null);
+            if ($s10CodesFrom->getFromCountry() === $this) {
+                $s10CodesFrom->setFromCountry(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, S10Code>
+     */
+    public function getS10codesTo(): Collection
+    {
+        return $this->s10codesTo;
+    }
+
+    public function addS10codesTo(S10Code $s10codesTo): static
+    {
+        if (!$this->s10codesTo->contains($s10codesTo)) {
+            $this->s10codesTo->add($s10codesTo);
+            $s10codesTo->setToCountry($this);
+        }
+
+        return $this;
+    }
+
+    public function removeS10codesTo(S10Code $s10codesTo): static
+    {
+        if ($this->s10codesTo->removeElement($s10codesTo)) {
+            // set the owning side to null (unless already changed)
+            if ($s10codesTo->getToCountry() === $this) {
+                $s10codesTo->setToCountry(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ItemDetail>
+     */
+    public function getItemDetails(): Collection
+    {
+        return $this->itemDetails;
+    }
+
+    public function addItemDetail(ItemDetail $itemDetail): static
+    {
+        if (!$this->itemDetails->contains($itemDetail)) {
+            $this->itemDetails->add($itemDetail);
+            $itemDetail->setCountryOfOriginOfGoods($this);
+        }
+
+        return $this;
+    }
+
+    public function removeItemDetail(ItemDetail $itemDetail): static
+    {
+        if ($this->itemDetails->removeElement($itemDetail)) {
+            // set the owning side to null (unless already changed)
+            if ($itemDetail->getCountryOfOriginOfGoods() === $this) {
+                $itemDetail->setCountryOfOriginOfGoods(null);
             }
         }
 

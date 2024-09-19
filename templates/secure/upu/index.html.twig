@@ -42,9 +42,9 @@
             {{ form_errors (form.postalService)}}
         </div>
         <div class="col-xl-4">
-            {{ form_label (form.country) }}
-            {{ form_widget (form.country) }}
-            {{ form_errors (form.country)}}
+            {{ form_label (form.toCountry) }}
+            {{ form_widget (form.toCountry) }}
+            {{ form_errors (form.toCountry)}}
         </div>
     </div>
     <div class="row mt-4">
@@ -93,7 +93,7 @@
                             {{s10.postalServiceRange.postalService.name}}
                         </td>
                         <td>
-                            {{s10.country.name}}
+                            {{s10.toCountry.name}}
                         </td>
                         <td>
                             {{s10.getFormattedNumbercode}}

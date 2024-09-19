@@ -24,7 +24,7 @@ class S10CodeRepository extends ServiceEntityRepository
     public function countRecordsByServiceCodeAndCountryBeforeOrEqualToId(int $id): int
     {
         $subQueryCountry = $this->createQueryBuilder('psaux1')
-            ->select('IDENTITY(psaux1.country)')
+            ->select('IDENTITY(psaux1.toCountry)')
             ->where('psaux1.id = :id');
 
         $subQueryServiceCode = $this->createQueryBuilder('psaux2')
@@ -33,10 +33,10 @@ class S10CodeRepository extends ServiceEntityRepository
 
         $qb = $this->createQueryBuilder('ps')
             ->select('COUNT(ps.id) as cantidad')
-            ->where('IDENTITY(ps.country) = (' . $subQueryCountry->getDQL() . ')')
+            ->where('IDENTITY(ps.toCountry) = (' . $subQueryCountry->getDQL() . ')')
             ->andWhere('ps.serviceCode = (' . $subQueryServiceCode->getDQL() . ')')
             ->andWhere('ps.id <= :id')
-            ->groupBy('ps.country, ps.serviceCode')
+            ->groupBy('ps.toCountry, ps.serviceCode')
             ->setParameter('id', $id);
 
         return (int) $qb->getQuery()->getSingleScalarResult();
