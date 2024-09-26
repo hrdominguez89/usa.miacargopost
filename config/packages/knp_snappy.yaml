@@ -6,10 +6,6 @@ knp_snappy:
         binary:     '%env(WKHTMLTOPDF_PATH)%'        
         options:
             page-size: A4
-            margin-top: 20mm
-            margin-right: 30mm
-            margin-bottom: 10mm
-            margin-left: 20mm
 
     image:
         enabled:    false
