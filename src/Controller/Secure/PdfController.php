@@ -120,8 +120,138 @@ class PdfController extends AbstractController
         $html = $this->renderView('pdf/cn23.html.twig',$data);        
         $options = [
             'orientation' => 'Landscape',
+            'margin-top'=> '20mm',
+            'margin-right' => '30mm',
+            'margin-bottom' => '10mm',
+            'margin-left' => '20mm',
         ];
         $pdfContent = $this->pdf->getOutputFromHtml($html, $options);
+       
+        return new Response($pdfContent, 200, ['Content-Type' => 'application/pdf']);
+    }
+    #[Route('/cn31/{s10code_id}', name: 'app_pdf_cn31')]
+    public function cn31($s10code_id, S10CodeRepository $s10CodeRepository, EntityManagerInterface $em): Response{
+         // Ruta absoluta de la imagen en el servidor
+        $imagePath = $this->getParameter('kernel.project_dir') . '/public/images/logoems.png';
+        $imagePathCode = $this->getParameter('kernel.project_dir') . '/public/images/code.png';
+        
+        // Convertir la imagen a base64
+        if (file_exists($imagePath)) {
+            $data['base64Image'] = base64_encode(file_get_contents($imagePath));
+        } else {
+            $data['base64Image'] = null; // Manejo de errores si la imagen no se encuentra
+        }
+        if (file_exists($imagePathCode)) {
+            $base64ImageCode = base64_encode(file_get_contents($imagePathCode));
+        } else {
+            $base64ImageCode = null; // Manejo de errores si la imagen no se encuentra
+        }
+
+        $data['s10code'] = $s10CodeRepository->find($s10code_id);
+        if ($data['s10code']) {
+            if (!$data['s10code']->getNumbercode()) {
+                $data['s10code']->setNumbercode($this->generateCode($s10code_id, $s10CodeRepository));
+                $em->persist($data['s10code']);
+                $em->flush($data['s10code']);
+            }
+            $this->generateBarcodeImage($data['s10code'], $em);
+        } else {
+            return $this->redirectToRoute('app_secure_upu');
+        }
+        
+        $html = $this->renderView('pdf/cn31.html.twig', $data);        
+        $options = [
+            'margin-top'=> '20mm',
+            'margin-right' => '10mm',
+            'margin-bottom' => '10mm',
+            'margin-left' => '30mm',
+               
+        ];
+        $pdfContent = $this->pdf->getOutputFromHtml($html , $options);
+       
+        return new Response($pdfContent, 200, ['Content-Type' => 'application/pdf']);
+    }
+    #[Route('/cn38/{s10code_id}', name: 'app_pdf_cn38')]
+    public function cn38($s10code_id, S10CodeRepository $s10CodeRepository, EntityManagerInterface $em): Response{
+         // Ruta absoluta de la imagen en el servidor
+        $imagePath = $this->getParameter('kernel.project_dir') . '/public/images/logoems.png';
+        $imagePathCode = $this->getParameter('kernel.project_dir') . '/public/images/code.png';
+        
+        // Convertir la imagen a base64
+        if (file_exists($imagePath)) {
+            $data['base64Image'] = base64_encode(file_get_contents($imagePath));
+        } else {
+            $data['base64Image'] = null; // Manejo de errores si la imagen no se encuentra
+        }
+        if (file_exists($imagePathCode)) {
+            $base64ImageCode = base64_encode(file_get_contents($imagePathCode));
+        } else {
+            $base64ImageCode = null; // Manejo de errores si la imagen no se encuentra
+        }
+
+        $data['s10code'] = $s10CodeRepository->find($s10code_id);
+        if ($data['s10code']) {
+            if (!$data['s10code']->getNumbercode()) {
+                $data['s10code']->setNumbercode($this->generateCode($s10code_id, $s10CodeRepository));
+                $em->persist($data['s10code']);
+                $em->flush($data['s10code']);
+            }
+            $this->generateBarcodeImage($data['s10code'], $em);
+        } else {
+            return $this->redirectToRoute('app_secure_upu');
+        }
+        
+        $html = $this->renderView('pdf/cn38.html.twig', $data);        
+        $options = [
+            'margin-top'=> '20mm',
+            'margin-right' => '10mm',
+            'margin-bottom' => '10mm',
+            'margin-left' => '20mm',
+               
+        ];
+        $pdfContent = $this->pdf->getOutputFromHtml($html , $options);
+       
+        return new Response($pdfContent, 200, ['Content-Type' => 'application/pdf']);
+    }
+    #[Route('/cn35/{s10code_id}', name: 'app_pdf_cn35')]
+    public function cn35($s10code_id, S10CodeRepository $s10CodeRepository, EntityManagerInterface $em): Response{
+         // Ruta absoluta de la imagen en el servidor
+        $imagePath = $this->getParameter('kernel.project_dir') . '/public/images/logoems.png';
+        $imagePathCode = $this->getParameter('kernel.project_dir') . '/public/images/code.png';
+        
+        // Convertir la imagen a base64
+        if (file_exists($imagePath)) {
+            $data['base64Image'] = base64_encode(file_get_contents($imagePath));
+        } else {
+            $data['base64Image'] = null; // Manejo de errores si la imagen no se encuentra
+        }
+        if (file_exists($imagePathCode)) {
+            $base64ImageCode = base64_encode(file_get_contents($imagePathCode));
+        } else {
+            $base64ImageCode = null; // Manejo de errores si la imagen no se encuentra
+        }
+
+        $data['s10code'] = $s10CodeRepository->find($s10code_id);
+        if ($data['s10code']) {
+            if (!$data['s10code']->getNumbercode()) {
+                $data['s10code']->setNumbercode($this->generateCode($s10code_id, $s10CodeRepository));
+                $em->persist($data['s10code']);
+                $em->flush($data['s10code']);
+            }
+            $this->generateBarcodeImage($data['s10code'], $em);
+        } else {
+            return $this->redirectToRoute('app_secure_upu');
+        }
+        
+        $html = $this->renderView('pdf/cn35.html.twig', $data);        
+        $options = [
+            'margin-top'=> '20mm',
+            'margin-right' => '10mm',
+            'margin-bottom' => '10mm',
+            'margin-left' => '20mm',
+               
+        ];
+        $pdfContent = $this->pdf->getOutputFromHtml($html , $options);
        
         return new Response($pdfContent, 200, ['Content-Type' => 'application/pdf']);
     }
