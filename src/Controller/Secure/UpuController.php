@@ -2,6 +2,7 @@
 
 namespace App\Controller\Secure;
 
+use App\Entity\ItemDetail;
 use App\Entity\S10Code;
 use App\Form\S10CodeType;
 use App\Repository\PostalServiceRepository;
@@ -37,6 +38,8 @@ class UpuController extends AbstractController
 
         $data['s10Code'] = new S10Code();
 
+        $data['s10Code']->addItemDetail(new ItemDetail());
+
         $data['active'] = 'S10';
 
         $data['form'] = $this->createForm(S10CodeType::class, $data['s10Code']);
@@ -44,11 +47,20 @@ class UpuController extends AbstractController
 
         if ($data['form']->isSubmitted() && $data['form']->isValid()) {
 
-
             $postalService = $postalServiceRepository->find($request->get('s10_code')['postalService']);
             // $postalService->getPostalServiceRanges()[0] con esto traigo solo el primer array que me interesa, esto es por ahora
             $data['s10Code']->setPostalServiceRange($postalService->getPostalServiceRanges()[0])
                 ->setServiceCode($postalService->getPostalServiceRanges()[0]->getPrincipalCharacter() . $postalService->getPostalServiceRanges()[0]->getSecondCharacterFrom());
+
+            $totalValue = 0;
+            $totalWeight = 0;
+            foreach ($data['s10Code']->getItemDetails() as $itemDetail) {
+                $totalWeight += $itemDetail->getNetWeight();
+                $totalValue += $itemDetail->getValue();
+                $em->persist($itemDetail);
+            }
+            $data['s10Code']->setTotalValue($totalValue);
+            $data['s10Code']->setTotalGrossWeight($totalWeight);
             $em->persist($data['s10Code']);
             $em->flush();
 

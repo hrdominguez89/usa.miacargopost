@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\S10CodeRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -25,10 +26,6 @@ class S10Code
 
     #[ORM\Column(type: Types::BIGINT, nullable: true)]
     private ?string $numbercode = null;
-
-    #[ORM\ManyToOne(inversedBy: 's10Codes')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Country $country = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $barcodeImage = null;
@@ -104,20 +101,20 @@ class S10Code
     #[ORM\Column(nullable: true)]
     private ?float $acceptanceInfItemWeight = null;
 
-    #[ORM\Column]
-    private ?float $AcceptanceInfPostalChargesFees = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $acceptanceInfPostalChargesFees = null;
 
-    #[ORM\Column]
-    private ?float $AcceptanceInfInsurance = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $acceptanceInfInsurance = null;
 
-    #[ORM\Column]
-    private ?float $AcceptanceInfTotal = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $acceptanceInfTotal = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $AcceptanceInfOffice = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $acceptanceInfOffice = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $AcceptanceInfDateTime = null;
+    private ?\DateTimeInterface $acceptanceInfDateTime = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $deliveryInformationDate = null;
@@ -127,10 +124,6 @@ class S10Code
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $deliveryInformationSignature = null;
-
-    #[ORM\ManyToOne(inversedBy: 's10Codes')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?CategoryItem $categoryItem = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $categoryItemExplanation = null;
@@ -142,12 +135,20 @@ class S10Code
     #[ORM\JoinColumn(nullable: false)]
     private ?CategoryDocument $categoryDocument = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $categoryDocuentNumber = null;
+
     #[ORM\OneToMany(mappedBy: 's10code', targetEntity: ItemDetail::class)]
     private Collection $itemDetails;
+
+    #[ORM\OneToMany(mappedBy: 's10code', targetEntity: CategoryItemS10code::class)]
+    private Collection $categoryItemS10codes;
 
     public function __construct()
     {
         $this->itemDetails = new ArrayCollection();
+        $this->categoryItemS10codes = new ArrayCollection();
+        $this->createdAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -191,21 +192,9 @@ class S10Code
         return $this;
     }
 
-    public function getCountry(): ?Country
-    {
-        return $this->country;
-    }
-
-    public function setCountry(?Country $country): static
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
     public function getFormattedNumbercode(): string
     {
-        return $this->serviceCode.str_pad($this->numbercode ?? '', 9, '0', STR_PAD_LEFT).$this->country->getIso2();
+        return $this->serviceCode . str_pad($this->numbercode ?? '', 9, '0', STR_PAD_LEFT) . $this->toCountry->getIso2();
     }
 
     public function getBarcodeImage(): ?string
@@ -498,60 +487,60 @@ class S10Code
 
     public function getAcceptanceInfPostalChargesFees(): ?float
     {
-        return $this->AcceptanceInfPostalChargesFees;
+        return $this->acceptanceInfPostalChargesFees;
     }
 
-    public function setAcceptanceInfPostalChargesFees(float $AcceptanceInfPostalChargesFees): static
+    public function setAcceptanceInfPostalChargesFees(float $acceptanceInfPostalChargesFees): static
     {
-        $this->AcceptanceInfPostalChargesFees = $AcceptanceInfPostalChargesFees;
+        $this->acceptanceInfPostalChargesFees = $acceptanceInfPostalChargesFees;
 
         return $this;
     }
 
     public function getAcceptanceInfInsurance(): ?float
     {
-        return $this->AcceptanceInfInsurance;
+        return $this->acceptanceInfInsurance;
     }
 
-    public function setAcceptanceInfInsurance(float $AcceptanceInfInsurance): static
+    public function setAcceptanceInfInsurance(float $acceptanceInfInsurance): static
     {
-        $this->AcceptanceInfInsurance = $AcceptanceInfInsurance;
+        $this->acceptanceInfInsurance = $acceptanceInfInsurance;
 
         return $this;
     }
 
     public function getAcceptanceInfTotal(): ?float
     {
-        return $this->AcceptanceInfTotal;
+        return $this->acceptanceInfTotal;
     }
 
-    public function setAcceptanceInfTotal(float $AcceptanceInfTotal): static
+    public function setAcceptanceInfTotal(float $acceptanceInfTotal): static
     {
-        $this->AcceptanceInfTotal = $AcceptanceInfTotal;
+        $this->acceptanceInfTotal = $acceptanceInfTotal;
 
         return $this;
     }
 
     public function getAcceptanceInfOffice(): ?string
     {
-        return $this->AcceptanceInfOffice;
+        return $this->acceptanceInfOffice;
     }
 
-    public function setAcceptanceInfOffice(string $AcceptanceInfOffice): static
+    public function setAcceptanceInfOffice(string $acceptanceInfOffice): static
     {
-        $this->AcceptanceInfOffice = $AcceptanceInfOffice;
+        $this->acceptanceInfOffice = $acceptanceInfOffice;
 
         return $this;
     }
 
     public function getAcceptanceInfDateTime(): ?\DateTimeInterface
     {
-        return $this->AcceptanceInfDateTime;
+        return $this->acceptanceInfDateTime;
     }
 
-    public function setAcceptanceInfDateTime(?\DateTimeInterface $AcceptanceInfDateTime): static
+    public function setAcceptanceInfDateTime(?\DateTimeInterface $acceptanceInfDateTime): static
     {
-        $this->AcceptanceInfDateTime = $AcceptanceInfDateTime;
+        $this->acceptanceInfDateTime = $acceptanceInfDateTime;
 
         return $this;
     }
@@ -588,18 +577,6 @@ class S10Code
     public function setDeliveryInformationSignature(?string $deliveryInformationSignature): static
     {
         $this->deliveryInformationSignature = $deliveryInformationSignature;
-
-        return $this;
-    }
-
-    public function getCategoryItem(): ?CategoryItem
-    {
-        return $this->categoryItem;
-    }
-
-    public function setCategoryItem(?CategoryItem $categoryItem): static
-    {
-        $this->categoryItem = $categoryItem;
 
         return $this;
     }
@@ -666,6 +643,48 @@ class S10Code
                 $itemDetail->setS10code(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CategoryItemS10code>
+     */
+    public function getCategoryItemS10codes(): Collection
+    {
+        return $this->categoryItemS10codes;
+    }
+
+    public function addCategoryItemS10code(CategoryItemS10code $categoryItemS10code): static
+    {
+        if (!$this->categoryItemS10codes->contains($categoryItemS10code)) {
+            $this->categoryItemS10codes->add($categoryItemS10code);
+            $categoryItemS10code->setS10code($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategoryItemS10code(CategoryItemS10code $categoryItemS10code): static
+    {
+        if ($this->categoryItemS10codes->removeElement($categoryItemS10code)) {
+            // set the owning side to null (unless already changed)
+            if ($categoryItemS10code->getS10code() === $this) {
+                $categoryItemS10code->setS10code(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCategoryDocuentNumber(): ?string
+    {
+        return $this->categoryDocuentNumber;
+    }
+
+    public function setCategoryDocuentNumber(?string $categoryDocuentNumber): static
+    {
+        $this->categoryDocuentNumber = $categoryDocuentNumber;
 
         return $this;
     }

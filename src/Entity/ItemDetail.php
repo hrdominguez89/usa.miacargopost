@@ -29,7 +29,7 @@ class ItemDetail
     private ?string $hsTarifNumber = null;
 
     #[ORM\ManyToOne(inversedBy: 'itemDetails')]
-    #[ORM\Column(nullable: true)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Country $countryOfOriginOfGoods = null;
 
     #[ORM\ManyToOne(inversedBy: 'itemDetails')]

@@ -23,15 +23,23 @@
                 <br>
                 {{ s10CodeGenerated.getFormattedNumbercode }}
             </h1>
-            <a target="_blank" class="btn btn-primary" href="{{ path('app_pdf_cn22', { 's10code_id':s10CodeGenerated.id}) }}">Ver
+            <a target="_blank" class="btn btn-primary"
+                href="{{ path('app_pdf_cn22', { 's10code_id':s10CodeGenerated.id}) }}">Ver
                 CN22</a>
-                <a target="_blank" class="btn btn-primary" href="{{ path('app_pdf_cn23', { 's10code_id':s10CodeGenerated.id}) }}">Ver
-                    CN23</a>
+            <a target="_blank" class="btn btn-primary"
+                href="{{ path('app_pdf_cn23', { 's10code_id':s10CodeGenerated.id}) }}">Ver
+                CN23</a>
         </div>
     </div>
     {% endif %}
 
     {{form_start(form)}}
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h4>Tipo de servicio y pais destino</h4>
+        </div>
+    </div>
     <div class="row">
         <div class="col-xl-4">
             {{ form_label (form.postalProduct) }}
@@ -49,13 +57,278 @@
             {{ form_errors (form.toCountry)}}
         </div>
     </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h4>Remitente</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3">
+            {{ form_label (form.fromName) }}
+            {{ form_widget (form.fromName) }}
+            {{ form_errors (form.fromName)}}
+        </div>
+        <div class="col-xl-3">
+            {{ form_label (form.fromStreet) }}
+            {{ form_widget (form.fromStreet) }}
+            {{ form_errors (form.fromStreet)}}
+        </div>
+        <div class="col-xl-3">
+            {{ form_label (form.fromCountry) }}
+            {{ form_widget (form.fromCountry) }}
+            {{ form_errors (form.fromCountry)}}
+        </div>
+        <div class="col-xl-3">
+            {{ form_label (form.fromCity) }}
+            {{ form_widget (form.fromCity) }}
+            {{ form_errors (form.fromCity)}}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-4">
+            {{ form_label (form.fromPostcode) }}
+            {{ form_widget (form.fromPostcode) }}
+            {{ form_errors (form.fromPostcode)}}
+        </div>
+        <div class="col-4">
+            {{ form_label (form.fromTel) }}
+            {{ form_widget (form.fromTel) }}
+            {{ form_errors (form.fromTel)}}
+        </div>
+        <div class="col-4">
+            {{ form_label (form.fromEmail) }}
+            {{ form_widget (form.fromEmail) }}
+            {{ form_errors (form.fromEmail)}}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            {{ form_label (form.sendersCustomsReference) }}
+            {{ form_widget (form.sendersCustomsReference) }}
+            {{ form_errors (form.sendersCustomsReference)}}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <h4>Destinatario</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            {{ form_label (form.toName) }}
+            {{ form_widget (form.toName) }}
+            {{ form_errors (form.toName)}}
+        </div>
+        <div class="col-4">
+            {{ form_label (form.toStreet) }}
+            {{ form_widget (form.toStreet) }}
+            {{ form_errors (form.toStreet)}}
+        </div>
+        <div class="col-4">
+            {{ form_label (form.toCity) }}
+            {{ form_widget (form.toCity) }}
+            {{ form_errors (form.toCity)}}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-4">
+            {{ form_label (form.toPostcode) }}
+            {{ form_widget (form.toPostcode) }}
+            {{ form_errors (form.toPostcode)}}
+        </div>
+        <div class="col-4">
+            {{ form_label (form.toTel) }}
+            {{ form_widget (form.toTel) }}
+            {{ form_errors (form.toTel)}}
+        </div>
+        <div class="col-4">
+            {{ form_label (form.toEmail) }}
+            {{ form_widget (form.toEmail) }}
+            {{ form_errors (form.toEmail)}}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            {{ form_label (form.importersReference) }}
+            {{ form_widget (form.importersReference) }}
+            {{ form_errors (form.importersReference)}}
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            {{ form_label (form.importersTel) }}
+            {{ form_widget (form.importersTel) }}
+            {{ form_errors (form.importersTel)}}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-3 text-start">
+            <h4>
+                Items
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-12" data-prototype="{{ form_widget(form.itemDetails.vars.prototype)|e('html_attr') }}">
+            {% for itemDetail in form.itemDetails %}
+            <div class="row my-3 py-3 item-detail-form border border-black">
+
+                <div class="col-4">
+                    {{ form_label(itemDetail.detailedContents) }}
+                    {{ form_widget(itemDetail.detailedContents) }}
+                    {{ form_errors(itemDetail.detailedContents) }}
+                </div>
+                <div class="col-2">
+                    {{ form_label(itemDetail.quantity) }}
+                    {{ form_widget(itemDetail.quantity) }}
+                    {{ form_errors(itemDetail.quantity) }}
+                </div>
+                <div class="col-3">
+                    {{ form_label(itemDetail.netWeight) }}
+                    {{ form_widget(itemDetail.netWeight) }}
+                    {{ form_errors(itemDetail.netWeight) }}
+                </div>
+                <div class="col-3">
+                    {{ form_label(itemDetail.value) }}
+                    {{ form_widget(itemDetail.value) }}
+                    {{ form_errors(itemDetail.value) }}
+                </div>
+                <div class="col-12 mt-2">
+                    <div class="card card-light text-dark">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">Solo para envios comerciales</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    {{ form_label(itemDetail.hsTarifNumber) }}
+                                    {{ form_widget(itemDetail.hsTarifNumber) }}
+                                    {{ form_errors(itemDetail.hsTarifNumber) }}
+                                </div>
+                                <div class="col-6">
+                                    {{ form_label(itemDetail.countryOfOriginOfGoods) }}
+                                    {{ form_widget(itemDetail.countryOfOriginOfGoods) }}
+                                    {{ form_errors(itemDetail.countryOfOriginOfGoods) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-danger btn-sm remove-item-detail disabled">Eliminar</button>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="col-12 text-center">
+            <button type="button" class="btn btn-success add-item-detail mt-2">Agregar items</button>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12">
+                    <h4>
+                        Categoría del envio
+                    </h4>
+                </div>
+                <div class="col-6">
+                    {{ form_label (form.categoryItem) }}
+                    {{ form_widget (form.categoryItem) }}
+                    {{ form_errors (form.categoryItem)}}
+                </div>
+
+                <div class="col-6">
+                    {{ form_label (form.categoryItemExplanation) }}
+                    {{ form_widget (form.categoryItemExplanation) }}
+                    {{ form_errors (form.categoryItemExplanation)}}
+                </div>
+                <div class="col-12 mt-4">
+                    {{ form_label (form.comments) }}
+                    {{ form_widget (form.comments) }}
+                    {{ form_errors (form.comments)}}
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12">
+                    <h4>
+                        Tipo de documento
+                    </h4>
+                </div>
+                <div class="col-12">
+                    {{ form_label (form.categoryDocument) }}
+                    {{ form_widget (form.categoryDocument) }}
+                    {{ form_errors (form.categoryDocument)}}
+                </div>
+                <div class="col-12 mt-2">
+                    {{ form_label (form.categoryDocuentNumber) }}
+                    {{ form_widget (form.categoryDocuentNumber) }}
+                    {{ form_errors (form.categoryDocuentNumber)}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-light">
+                <div class="card-header">
+                    <h6>Información de aceptación</h6>
+                </div>
+                <div class="card-body text-dark">
+                    <div class="row">
+                        <div class="col-2">
+                            {{ form_label (form.acceptanceInfItemWeight) }}
+                            {{ form_widget (form.acceptanceInfItemWeight) }}
+                            {{ form_errors (form.acceptanceInfItemWeight)}}
+                        </div>
+                        <div class="col-2">
+                            {{ form_label (form.acceptanceInfPostalChargesFees) }}
+                            {{ form_widget (form.acceptanceInfPostalChargesFees) }}
+                            {{ form_errors (form.acceptanceInfPostalChargesFees)}}
+                        </div>
+                        <div class="col-2">
+                            {{ form_label (form.acceptanceInfInsurance) }}
+                            {{ form_widget (form.acceptanceInfInsurance) }}
+                            {{ form_errors (form.acceptanceInfInsurance)}}
+                        </div>
+                        <div class="col-2">
+                            {{ form_label (form.acceptanceInfTotal) }}
+                            {{ form_widget (form.acceptanceInfTotal) }}
+                            {{ form_errors (form.acceptanceInfTotal)}}
+                        </div>
+                        <div class="col-2">
+                            {{ form_label (form.acceptanceInfOffice) }}
+                            {{ form_widget (form.acceptanceInfOffice) }}
+                            {{ form_errors (form.acceptanceInfOffice)}}
+                        </div>
+                        <div class="col-2">
+                            {{ form_label (form.acceptanceInfDateTime) }}
+                            {{ form_widget (form.acceptanceInfDateTime) }}
+                            {{ form_errors (form.acceptanceInfDateTime)}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row mt-4">
         <div class="col-12 d-grid gap-2">
             {{ form_widget (form.submit) }}
         </div>
     </div>
     {{form_end(form)}}
-
+    <hr>
     <div class="row mt-5">
         <div class="col-xs-12">
             <table id="s10table" class="table">
@@ -101,8 +374,10 @@
                             {{s10.getFormattedNumbercode}}
                         </td>
                         <td class="text-center">
-                            <a target="_blank" href="{{ path('app_pdf_cn22', { 's10code_id':s10.id}) }}" class="btn btn-primary">Ver CN22</a>
-                            <a target="_blank" href="{{ path('app_pdf_cn23', { 's10code_id':s10.id}) }}" class="btn btn-primary">Ver CN23</a>
+                            <a target="_blank" href="{{ path('app_pdf_cn22', { 's10code_id':s10.id}) }}"
+                                class="btn btn-primary">Ver CN22</a>
+                            <a target="_blank" href="{{ path('app_pdf_cn23', { 's10code_id':s10.id}) }}"
+                                class="btn btn-primary">Ver CN23</a>
                         </td>
                     </tr>
 
@@ -185,6 +460,89 @@
         }
     };
 
+
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let itemDetailCollectionHolder = document.querySelector('[data-prototype]');
+        let addItemDetailButton = document.querySelector('.add-item-detail');
+        let index = itemDetailCollectionHolder.children.length;
+
+        addItemDetailButton.addEventListener('click', function () {
+            addFormToCollection(itemDetailCollectionHolder);
+        });
+
+        itemDetailCollectionHolder.addEventListener('click', function (event) {
+            if (event.target.classList.contains('remove-item-detail')) {
+                // Obtiene la longitud de los hijos menos 1
+                const numItems = document.querySelector('[data-prototype]').children.length - 1;
+                // Verifica si hay más de 1 elemento antes de eliminar
+                if (numItems > 0) {
+                    // Elimina el elemento más cercano con la clase 'item-detail-form'
+                    event.target.closest('.item-detail-form').remove();
+                    // Vuelve a calcular el número de elementos después de eliminar
+                    const newNumItems = document.querySelector('[data-prototype]').children.length - 1;
+                    // Si no quedan elementos, deshabilita el botón
+                    if (newNumItems === 0) {
+                        // Accede al primer elemento con la clase 'remove-item-detail' y le agrega la clase 'disabled'
+                        const removeButton = document.getElementsByClassName('remove-item-detail')[0];
+                        if (removeButton) {
+                            removeButton.classList.add('disabled');
+                        }
+                    }
+                }
+            }
+        });
+
+        function addFormToCollection(collectionHolder) {
+            let newForm = collectionHolder.dataset.prototype.replace(/__name__/g, index);
+
+            let formWrapper = document.createElement('div');
+            formWrapper.classList.add('row', 'my-3', 'py-3', 'item-detail-form', 'border', 'border-black');
+            formWrapper.innerHTML = `
+                <div class="col-4">
+                    <label for="s10_code_itemDetails_${index}_${newForm.match(/detailedContents.*?<\/div>/)[0]}
+                </div>
+                <div class="col-2">
+                    <label for="s10_code_itemDetails_${index}_${newForm.match(/quantity.*?<\/div>/)[0]}
+                </div>
+                <div class="col-3">
+                    <label for="s10_code_itemDetails_${index}_${newForm.match(/netWeight.*?<\/div>/)[0]}
+                </div>
+                <div class="col-3">
+                    <label for="s10_code_itemDetails_${index}_${newForm.match(/value.*?<\/div>/)[0]}
+                </div>
+                <div class="col-12 mt-2">
+                    <div class="card card-light text-dark">
+                        <div class="card-header">
+                            <h6 class="card-title mb-0">Solo para envios comerciales</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="s10_code_itemDetails_${index}_${newForm.match(/hsTarifNumber.*?<\/div>/)[0]}
+                                </div>
+                                <div class="col-6">
+                                    <label for="s10_code_itemDetails_${index}_${newForm.match(/countryOfOriginOfGoods.*?<\/div>/)[0]}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-danger btn-sm remove-item-detail">Eliminar</button>
+                </div>
+            `;
+            // Insertar el nuevo formulario
+            collectionHolder.appendChild(formWrapper);
+            index++;
+            const elementos = document.getElementsByClassName('remove-item-detail');
+
+            for (let i = 0; i < elementos.length; i++) {
+                elementos[i].classList.remove('disabled');
+            }
+        }
+    });
 
 </script>
 

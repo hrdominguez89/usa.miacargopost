@@ -18,12 +18,12 @@ class CategoryItem
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'categoryItem', targetEntity: S10Code::class)]
-    private Collection $s10Codes;
+    #[ORM\OneToMany(mappedBy: 'categoryItem', targetEntity: CategoryItemS10code::class)]
+    private Collection $categoryItemS10codes;
 
     public function __construct()
     {
-        $this->s10Codes = new ArrayCollection();
+        $this->categoryItemS10codes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -44,32 +44,33 @@ class CategoryItem
     }
 
     /**
-     * @return Collection<int, S10Code>
+     * @return Collection<int, CategoryItemS10code>
      */
-    public function getS10Codes(): Collection
+    public function getCategoryItemS10codes(): Collection
     {
-        return $this->s10Codes;
+        return $this->categoryItemS10codes;
     }
 
-    public function addS10Code(S10Code $s10Code): static
+    public function addCategoryItemS10code(CategoryItemS10code $categoryItemS10code): static
     {
-        if (!$this->s10Codes->contains($s10Code)) {
-            $this->s10Codes->add($s10Code);
-            $s10Code->setCategoryItem($this);
+        if (!$this->categoryItemS10codes->contains($categoryItemS10code)) {
+            $this->categoryItemS10codes->add($categoryItemS10code);
+            $categoryItemS10code->setCategoryItem($this);
         }
 
         return $this;
     }
 
-    public function removeS10Code(S10Code $s10Code): static
+    public function removeCategoryItemS10code(CategoryItemS10code $categoryItemS10code): static
     {
-        if ($this->s10Codes->removeElement($s10Code)) {
+        if ($this->categoryItemS10codes->removeElement($categoryItemS10code)) {
             // set the owning side to null (unless already changed)
-            if ($s10Code->getCategoryItem() === $this) {
-                $s10Code->setCategoryItem(null);
+            if ($categoryItemS10code->getCategoryItem() === $this) {
+                $categoryItemS10code->setCategoryItem(null);
             }
         }
 
         return $this;
     }
+
 }
