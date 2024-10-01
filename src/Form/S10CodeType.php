@@ -137,7 +137,7 @@ class S10CodeType extends AbstractType
             ->add('sendersCustomsReference', TextType::class, [
                 'label' => "Referencia aduanera del expedidor",
                 'label_html' => true,
-                'required'=>false
+                'required' => false
             ])
             ->add('toName', TextType::class, [
                 'label' => 'Apellido y Nombre <span class="text-danger">*</span>',
@@ -184,13 +184,13 @@ class S10CodeType extends AbstractType
             ->add('importersReference', TextType::class, [
                 'label' => "Referencia del importador",
                 'label_html' => true,
-                'required'=>false
+                'required' => false
             ])
 
             ->add('importersTel', TextType::class, [
                 'label' => "Teléfono del importador",
                 'label_html' => true,
-                'required'=>false
+                'required' => false
             ])
             ->add('itemDetails', CollectionType::class, [
                 'entry_type' => ItemDetailType::class,
@@ -211,22 +211,21 @@ class S10CodeType extends AbstractType
             ])
             ->add('categoryItemExplanation', TextareaType::class, [
                 'label' => 'Explicación',
-                'required'=>false,
+                'required' => false,
                 'attr' => [
                     'rows' => 5
                 ]
             ])
             ->add('comments', TextareaType::class, [
                 'label' => 'Observaciones',
-                'required'=>false,
+                'required' => false,
                 'attr' => [
                     'rows' => 2
                 ]
             ])
             ->add('categoryDocument', EntityType::class, [
                 'placeholder' => 'Ninguno',
-                'label' => 'Tipo de documento  <span class="text-danger">*</span>',
-                'label_html' => true,
+                'label' => 'Tipo de documento',
                 'class'  => CategoryDocument::class,
                 'choice_label' => 'name',
                 'required' => false,
@@ -234,7 +233,7 @@ class S10CodeType extends AbstractType
             ])
             ->add('categoryDocuentNumber', TextType::class, [
                 'label' => 'Número de documento',
-                'required'=>false
+                'required' => false
             ])
             ->add('acceptanceInfItemWeight', NumberType::class, [
                 'label' => 'Peso',
@@ -272,8 +271,8 @@ class S10CodeType extends AbstractType
             ])
             ->add('acceptanceInfDateTime', DateTimeType::class, [
                 'label' => 'Fecha y Horas',
-                'widget'=>'single_text',
-                'required'=>false
+                'widget' => 'single_text',
+                'required' => false
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Generar Codigo S10 y Formularios CN22/CN23',

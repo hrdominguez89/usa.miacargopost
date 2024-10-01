@@ -132,7 +132,7 @@ class S10Code
     private ?string $comments = null;
 
     #[ORM\ManyToOne(inversedBy: 's10Codes')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?CategoryDocument $categoryDocument = null;
 
     #[ORM\Column(length: 255, nullable: true)]
