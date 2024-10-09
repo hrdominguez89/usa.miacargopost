@@ -2,6 +2,7 @@
 
 namespace App\Controller\Secure;
 
+use App\Constants\CategoyItems;
 use App\Entity\S10Code;
 use App\Repository\S10CodeRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -116,7 +117,7 @@ class PdfController extends AbstractController
         } else {
             return $this->redirectToRoute('app_secure_upu');
         }
-        
+      
         $html = $this->renderView('pdf/cn23.html.twig',$data);        
         $options = [
             'orientation' => 'Landscape',

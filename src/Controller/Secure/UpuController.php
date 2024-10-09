@@ -2,6 +2,7 @@
 
 namespace App\Controller\Secure;
 
+use App\Constants\CategoyItems;
 use App\Entity\ItemDetail;
 use App\Entity\S10Code;
 use App\Form\S10CodeType;
@@ -73,6 +74,9 @@ class UpuController extends AbstractController
 
             return $this->redirectToRoute('app_secure_upu', ['id' => $data['s10Code']->getId()]);
         }
+
+     
+
 
         return $this->render('secure/upu/index.html.twig', $data);
     }

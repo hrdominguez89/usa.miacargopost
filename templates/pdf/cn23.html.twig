@@ -163,8 +163,56 @@
 						</tr>
 
 					</thead>
+					
 					<tbody>
+						{% set line = 0 %}
+						{% for item in s10code.itemDetails  %}
+							{% set line = line + 1 %}
+						
 						<tr style="text-align: start;">
+							<td style="width: 44px;">  </td>
+							<td
+								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
+								{{item.detailedContents}}
+							</td>
+							<td
+								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								{{item.quantity}}
+							</td>
+							<td
+								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								{{item.netWeight}}
+							</td>
+							<td
+								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
+								{{item.value}}
+							</td>
+						</tr>
+
+						{% endfor %}
+						{% if line < 5 %}
+						{% for i in line..4 %}
+						<tr style="text-align: start;">
+							<td style="width: 44px;"></td>
+							<td
+								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
+							</td>
+							<td
+								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+							</td>
+							<td
+								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+							</td>
+							<td
+								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
+							</td>
+						</tr>
+						
+							
+						{% endfor %}
+						{% endif %}
+						
+						{# <tr style="text-align: start;">
 							<td style="width: 44px;"></td>
 							<td
 								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
@@ -223,22 +271,7 @@
 							<td
 								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
 							</td>
-						</tr>
-						<tr style="text-align: start;">
-							<td style="width: 44px;"></td>
-							<td
-								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
-							</td>
-						</tr>
+						</tr> #}
 						<tr style="text-align: start;">
 							<td style="width: 44px;"></td>
 							<td
@@ -271,32 +304,53 @@
 						</td>
 						<td
 							style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:6px;">
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 3 ) is not empty  %}
+							X							
+							{% endif %}
+							
 						</td>
 						<td
 							style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle; width:180px; ">
 							Commercial sample</td>
 						<td
 							style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:6px;">
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 5 ) is not empty  %}
+							X							
+							{% endif %}
 						</td>
 						<td style="padding-left: 5px; vertical-align:middle; ">Sales of goods</td>
 					</tr>
 					<tr>
 						<td style="width: 44px;"></td>
-						<td style="width: 20px; border:1px #000 solid"></td>
+						<td style="width: 20px; border:1px #000 solid">
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 1 ) is not empty  %}
+							X							
+							{% endif %}
+						</td>
 						<td style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle">Gift</td>
 						<td
 							style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:5px;">
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 4 ) is not empty  %}
+							X							
+							{% endif %}
 						</td>
 						<td style="padding-left: 5px; vertical-align:middle;" colspan="3">Returned goods</td>
 					</tr>
 					<tr>
 						<td style="width: 44px;"></td>
-						<td style="width: 20px; border:1px #000 solid"></td>
+						<td style="width: 20px; border:1px #000 solid">
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 2 ) is not empty  %}
+							X							
+							{% endif %}
+						</td>
 						<td
 							style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle; border-bottom:1px #000 solid;">
 							Documents</td>
 						<td
 							style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:5px;">
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 6 ) is not empty  %}
+							X							
+							{% endif %}
 						</td>
 						<td style="padding-left: 5px; vertical-align:middle; border-bottom:1px #000 solid;">Other</td>
 						<td style="width: 20px; border-bottom:1px #000 solid;"></td>
@@ -440,8 +494,8 @@
 					<tr>
 						<td
 							style="border-bottom:1px #000 solid; border-right:1px #000 solid; width:220px; height:25px;">
-							Date  </td>
-						<td style="border-bottom:1px #000 solid;">Time</td>
+							Date {{s10code.acceptanceInfDateTime|date('d/m/Y')}}  </td>
+						<td style="border-bottom:1px #000 solid;">Time {{s10code.acceptanceInfDateTime|date('H:i:s')}}</td>
 					</tr>
 					<tr>
 						<td style="font-size: 14px; color:white;  border-bottom:1px #000 solid; border-right:1px #000 solid; text-align:left; background-color:#000; height:25px;"
