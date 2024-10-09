@@ -94,52 +94,61 @@
 			</tr>
 			<tr>
 
-				<td style="border-bottom: 1px #000 solid; vertical-align:bottom; padding:5px" colspan="2">Street {{s10code.fromStreet}} </td>
+				<td style="border-bottom: 1px #000 solid; vertical-align:bottom; padding:5px" colspan="2">Street
+					{{s10code.fromStreet}} </td>
 
 				<td style="border-bottom: 1px #000 solid; border-right:1px #000 solid;vertical-align:bottom; padding:5px "
 					colspan="2">Street {{s10code.toStreet}}</td>
 			</tr>
 			<tr>
 				<td style="width:20%; vertical-align:bottom;  padding:5px;  border-bottom:1px #000 solid;">Postcode<span
-						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;"> {{s10code.fromPostcode}} </span>
+						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;">
+						{{s10code.fromPostcode}} </span>
 				</td>
 				<td style="border-bottom:1px #000 solid; padding:5px; vertical-align:bottom;" colspan="2">City<span
 						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;">{{s10code.fromCity}}</span>
 				</td>
 				<td style="width:20%; border-bottom:1px #000 solid; padding:5px; vertical-align:bottom;">Postcode<span
-						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;"> {{s10code.toPostcode}} </span>
+						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;">
+						{{s10code.toPostcode}} </span>
 				</td>
 				<td
 					style="border-bottom:1px #000 solid; border-right:1px #000 solid; padding:5px; vertical-align:bottom;">
 					City<span
-						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;"> {{s10code.toCity}} </span>
+						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;">
+						{{s10code.toCity}} </span>
 				</td>
 
 			</tr>
 			<tr>
 				<td style="width:20%; vertical-align:bottom;  padding:5px; border-bottom:1px #000 solid; " colspan="3">
 					Country<span
-						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;"> {{s10code.fromCountry.name}} </span>
+						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;">
+						{{s10code.fromCountry.name}} </span>
 				</td>
 
 				<td style="width:20%; padding:5px; vertical-align:bottom; border-bottom:1px #000 solid;" colspan="3">
-					Country<span style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0"> {{s10code.toCountry.name}} </span>
+					Country<span style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0">
+						{{s10code.toCountry.name}} </span>
 				</td>
 			</tr>
 			<tr>
 				<td style="width:20%; vertical-align:bottom;  padding:5px;  border-bottom:1px #000 solid;">Tel.<span
-						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;"> {{s10code.fromTel}} </span>
+						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;">
+						{{s10code.fromTel}} </span>
 				</td>
 				<td style="border-bottom:1px #000 solid; padding:5px; vertical-align:bottom;" colspan="2">E-mail<span
 						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;">{{s10code.fromEmail}}</span>
 				</td>
 				<td style="width:20%; border-bottom:1px #000 solid; padding:5px; vertical-align:bottom;">Tel.<span
-						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;"> {{s10code.toTel}} </span>
+						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;">
+						{{s10code.toTel}} </span>
 				</td>
 				<td
 					style="border-bottom:1px #000 solid; border-right:1px #000 solid; padding:5px; vertical-align:bottom;">
 					E-mail<span
-						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;"> {{s10code.toEmail}} </span>
+						style="font-size:16px; font-weight:600; text-transform:uppercase;  padding: 0; margin:0 0 0px 5px;">
+						{{s10code.toEmail}} </span>
 				</td>
 
 			</tr>
@@ -163,14 +172,14 @@
 						</tr>
 
 					</thead>
-					
+
 					<tbody>
 						{% set line = 0 %}
-						{% for item in s10code.itemDetails  %}
-							{% set line = line + 1 %}
-						
+						{% for item in s10code.itemDetails %}
+						{% set line = line + 1 %}
+
 						<tr style="text-align: start;">
-							<td style="width: 44px;">  </td>
+							<td style="width: 44px;"> </td>
 							<td
 								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
 								{{item.detailedContents}}
@@ -190,9 +199,7 @@
 						</tr>
 
 						{% endfor %}
-						{% if line < 5 %}
-						{% for i in line..4 %}
-						<tr style="text-align: start;">
+						{% if line < 5 %} {% for i in line..4 %} <tr style="text-align: start;">
 							<td style="width: 44px;"></td>
 							<td
 								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
@@ -206,91 +213,93 @@
 							<td
 								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
 							</td>
-						</tr>
-						
-							
-						{% endfor %}
-						{% endif %}
-						
-						{# <tr style="text-align: start;">
-							<td style="width: 44px;"></td>
-							<td
-								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
-							</td>
-						</tr>
-						<tr style="text-align: start;">
-							<td style="width: 44px;"></td>
-							<td
-								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
-							</td>
-						</tr>
-						<tr style="text-align: start;">
-							<td style="width: 44px;"></td>
-							<td
-								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
-							</td>
-						</tr>
-						<tr style="text-align: start;">
-							<td style="width: 44px;"></td>
-							<td
-								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
-							</td>
-						</tr> #}
-						<tr style="text-align: start;">
-							<td style="width: 44px;"></td>
-							<td
-								style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid;  ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; ">
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; ">
-								Total gross weight <p
-									style="padding: 2px 10px 0 0; margin:0; text-align:right; font-weight:600;"> {{s10code.totalGrossWeight}} </p>
-							</td>
-							<td
-								style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; border-right:1px #000 solid;">
-								Total value <p style="padding: 2px 10px 0 0; margin:0; text-align:right; font-weight:600;">
-								{{s10code.totalValue}}	</p>
-							</td>
-						</tr>
+							</tr>
+
+
+							{% endfor %}
+							{% endif %}
+
+							{# <tr style="text-align: start;">
+								<td style="width: 44px;"></td>
+								<td
+									style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
+								</td>
+							</tr>
+							<tr style="text-align: start;">
+								<td style="width: 44px;"></td>
+								<td
+									style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
+								</td>
+							</tr>
+							<tr style="text-align: start;">
+								<td style="width: 44px;"></td>
+								<td
+									style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
+								</td>
+							</tr>
+							<tr style="text-align: start;">
+								<td style="width: 44px;"></td>
+								<td
+									style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600;  ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; font-weight:600; border-right:1px #000 solid;">
+								</td>
+							</tr> #}
+							<tr style="text-align: start;">
+								<td style="width: 44px;"></td>
+								<td
+									style="width: 320px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid;  ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; ">
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; ">
+									Total gross weight <p
+										style="padding: 2px 10px 0 0; margin:0; text-align:right; font-weight:600;">
+										{{s10code.totalGrossWeight}} </p>
+								</td>
+								<td
+									style="width: 135px; height:20px; font-size:14px; border-left:1px #000 solid; border-bottom:1px #000 solid; border-right:1px #000 solid;">
+									Total value <p
+										style="padding: 2px 10px 0 0; margin:0; text-align:right; font-weight:600;">
+										{{s10code.totalValue}} </p>
+								</td>
+							</tr>
 					</tbody>
 
 
@@ -304,18 +313,20 @@
 						</td>
 						<td
 							style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:6px;">
-							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 3 ) is not empty  %}
-							X							
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 3 ) is not empty
+							%}
+							X
 							{% endif %}
-							
+
 						</td>
 						<td
 							style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle; width:180px; ">
 							Commercial sample</td>
 						<td
 							style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:6px;">
-							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 5 ) is not empty  %}
-							X							
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 5 ) is not empty
+							%}
+							X
 							{% endif %}
 						</td>
 						<td style="padding-left: 5px; vertical-align:middle; ">Sales of goods</td>
@@ -323,15 +334,17 @@
 					<tr>
 						<td style="width: 44px;"></td>
 						<td style="width: 20px; border:1px #000 solid">
-							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 1 ) is not empty  %}
-							X							
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 1 ) is not empty
+							%}
+							X
 							{% endif %}
 						</td>
 						<td style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle">Gift</td>
 						<td
 							style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:5px;">
-							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 4 ) is not empty  %}
-							X							
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 4 ) is not empty
+							%}
+							X
 							{% endif %}
 						</td>
 						<td style="padding-left: 5px; vertical-align:middle;" colspan="3">Returned goods</td>
@@ -339,8 +352,9 @@
 					<tr>
 						<td style="width: 44px;"></td>
 						<td style="width: 20px; border:1px #000 solid">
-							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 2 ) is not empty  %}
-							X							
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 2 ) is not empty
+							%}
+							X
 							{% endif %}
 						</td>
 						<td
@@ -348,8 +362,9 @@
 							Documents</td>
 						<td
 							style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:5px;">
-							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 6 ) is not empty  %}
-							X							
+							{% if s10code.categoryItemS10codes | filter(item => item.categoryItem.id == 6 ) is not empty
+							%}
+							X
 							{% endif %}
 						</td>
 						<td style="padding-left: 5px; vertical-align:middle; border-bottom:1px #000 solid;">Other</td>
@@ -366,25 +381,48 @@
 					{# Licence #}
 					<tr></tr>
 					<td style="width: 44px;"></td>
-					<td style="width: 20px; border:1px #000 solid"></td>
+					<td style="width: 20px; border:1px #000 solid">
+						{% if s10code.categoryDocument and s10code.categoryDocument.id == 1 %}
+						X
+						{% endif %}
+					</td>
 					<td
 						style="border-right: 1px #000 solid; padding-left:3px; vertical-align:middle; border-bottom:1px #000 solid;">
 						Licence</td>
 					<td
 						style="width: 20px; border-right: 1px #000 solid; border-bottom: 1px #000 solid; padding-left:5px;">
+						{% if s10code.categoryDocument and s10code.categoryDocument.id == 2 %}
+						X
+						{% endif %}
 					</td>
 					<td style="padding-left: 5px; vertical-align:middle; border-bottom:1px #000 solid;">Certificate</td>
-					<td style="width: 20px; border:1px #000 solid;"></td>
+					<td style="width: 20px; border:1px #000 solid;">
+						{% if s10code.categoryDocument and s10code.categoryDocument.id == 3 %}
+						X
+						{% endif %}
+					</td>
 					<td style="border-bottom:1px #000 solid;">Invoice</td>
 					</tr>
 					<tr>
 						<td style="width: 44px;"></td>
 						<td style="height:40px; border-right: 1px #000 solid; border-left: 1px #000 solid; padding-left:5px; vertical-align:top; border-bottom:1px #000 solid;"
-							colspan="2">No(s). of licence(s)</td>
+							colspan="2">No(s). of licence(s):<br>
+							{% if s10code.categoryDocument and
+							s10code.categoryDocument.id == 1 %}
+							{{ s10code.categoryDocuentNumber }}
+							{% endif %}</td>
 						<td style="border-right: 1px #000 solid; border-left: 1px #000 solid; padding-left:5px; vertical-align:top; border-bottom:1px #000 solid;"
-							colspan="2">No(s). of certificate(s)</td>
+							colspan="2">No(s). of certificate(s):<br>
+							{% if s10code.categoryDocument and
+							s10code.categoryDocument.id == 2 %}
+							{{ s10code.categoryDocuentNumber }}
+							{% endif %}</td>
 						<td style="border-right: 1px #000 solid; border-left: 1px #000 solid; padding-left:5px; vertical-align:top; border-bottom:1px #000 solid;"
-							colspan="2">No(s). of invoice</td>
+							colspan="2">No(s). of invoice:<br>
+							{% if s10code.categoryDocument and s10code.categoryDocument.id
+							== 3 %}
+							{{ s10code.categoryDocuentNumber }}
+							{% endif %}</td>
 
 					</tr>
 					<tr>
@@ -472,30 +510,36 @@
 							colspan="2">Acceptance information</td>
 					</tr>
 					<tr>
-						<td style="border-bottom:1px #000 solid; height:25px;">Item weight (kg) {{s10code.acceptanceInfItemWeight}} </td>
+						<td style="border-bottom:1px #000 solid; height:25px;">Item weight (kg)
+							{{s10code.acceptanceInfItemWeight}} </td>
 						<td style="text-align: right; border-bottom:1px #000 solid;"></td>
 					</tr>
 					<tr>
-						<td style="border-bottom:1px #000 solid; height:25px;">Postal charges/Fees {{s10code.acceptanceInfPostalChargesFees}} </td>
+						<td style="border-bottom:1px #000 solid; height:25px;">Postal charges/Fees
+							{{s10code.acceptanceInfPostalChargesFees}} </td>
 						<td style="text-align: right; border-bottom:1px #000 solid;"></td>
 					</tr>
 					<tr>
-						<td style="border-bottom:1px #000 solid; height:25px;">Insurance {{s10code.acceptanceInfInsurance}} </td>
+						<td style="border-bottom:1px #000 solid; height:25px;">Insurance
+							{{s10code.acceptanceInfInsurance}} </td>
 						<td style="text-align: right; border-bottom:1px #000 solid;"></td>
 					</tr>
 					<tr>
-						<td style="border-bottom:1px #000 solid; height:25px;">Total {{s10code.acceptanceInfTotal}} </td>
+						<td style="border-bottom:1px #000 solid; height:25px;">Total {{s10code.acceptanceInfTotal}}
+						</td>
 						<td style="text-align: right; border-bottom:1px #000 solid;"></td>
 					</tr>
 					<tr>
-						<td style="border-bottom:1px #000 solid; height:25px;">Office {{s10code.acceptanceInfOffice}}</td>
-						<td style="text-align: right; border-bottom:1px #000 solid;">  </td>
+						<td style="border-bottom:1px #000 solid; height:25px;">Office {{s10code.acceptanceInfOffice}}
+						</td>
+						<td style="text-align: right; border-bottom:1px #000 solid;"> </td>
 					</tr>
 					<tr>
 						<td
 							style="border-bottom:1px #000 solid; border-right:1px #000 solid; width:220px; height:25px;">
-							Date {{s10code.acceptanceInfDateTime|date('d/m/Y')}}  </td>
-						<td style="border-bottom:1px #000 solid;">Time {{s10code.acceptanceInfDateTime|date('H:i:s')}}</td>
+							Date {{s10code.acceptanceInfDateTime|date('d/m/Y')}} </td>
+						<td style="border-bottom:1px #000 solid;">Time {{s10code.acceptanceInfDateTime|date('H:i:s')}}
+						</td>
 					</tr>
 					<tr>
 						<td style="font-size: 14px; color:white;  border-bottom:1px #000 solid; border-right:1px #000 solid; text-align:left; background-color:#000; height:25px;"
@@ -504,15 +548,17 @@
 					<tr>
 						<td
 							style="border-bottom:1px #000 solid; border-right:1px #000 solid; width:220px; height:25px;">
-							Date  </td>
-						<td style="border-bottom:1px #000 solid;">Time  </td>
+							Date </td>
+						<td style="border-bottom:1px #000 solid;">Time </td>
 					</tr>
 					<tr>
-						<td style="border-bottom:1px #000 solid; height:25px;">Person name {{s10code.deliveryInformationPersonName}} </td>
+						<td style="border-bottom:1px #000 solid; height:25px;">Person name
+							{{s10code.deliveryInformationPersonName}} </td>
 						<td style="text-align: right; border-bottom:1px #000 solid;"></td>
 					</tr>
 					<tr>
-						<td style="border-bottom:1px #000 solid; height:64px; vertical-align:top;">signature {{s10code.deliveryInformationSignature}} </td>
+						<td style="border-bottom:1px #000 solid; height:64px; vertical-align:top;">signature
+							{{s10code.deliveryInformationSignature}} </td>
 						<td style="text-align: right; border-bottom:1px #000 solid;"></td>
 					</tr>
 				</table>

@@ -2,10 +2,11 @@
 
 namespace App\Controller\Secure;
 
-use App\Constants\CategoyItems;
+use App\Entity\CategoryItemS10code;
 use App\Entity\ItemDetail;
 use App\Entity\S10Code;
 use App\Form\S10CodeType;
+use App\Repository\CategoryItemRepository;
 use App\Repository\PostalServiceRepository;
 use App\Repository\S10CodeRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UpuController extends AbstractController
 {
     #[Route('/s10/{id?}', name: 'app_secure_upu')]
-    public function index(Request $request, EntityManagerInterface $em, PostalServiceRepository $postalServiceRepository, S10CodeRepository $s10CodeRepository, $id = false): Response
+    public function index(Request $request, EntityManagerInterface $em, CategoryItemRepository $categoryItemRepository, PostalServiceRepository $postalServiceRepository, S10CodeRepository $s10CodeRepository, $id = false): Response
     {
         if ($id) {
             $data['s10CodeGenerated'] = $s10CodeRepository->find((int)$id);
@@ -62,6 +63,13 @@ class UpuController extends AbstractController
             }
             $data['s10Code']->setTotalValue($totalValue);
             $data['s10Code']->setTotalGrossWeight($totalWeight);
+
+            foreach ($request->get('s10_code')['categoryItem'] as $categoryItem) {
+                $categoryItemS10code = new CategoryItemS10code();
+                $data['s10Code']->addCategoryItemS10code($categoryItemS10code->setCategoryItem($categoryItemRepository->find($categoryItem)));
+                $em->persist($categoryItemS10code);
+            }
+
             $em->persist($data['s10Code']);
             $em->flush();
 
@@ -75,7 +83,7 @@ class UpuController extends AbstractController
             return $this->redirectToRoute('app_secure_upu', ['id' => $data['s10Code']->getId()]);
         }
 
-     
+
 
 
         return $this->render('secure/upu/index.html.twig', $data);
