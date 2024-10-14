@@ -7,12 +7,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/index')]
 class DefaultController extends AbstractController
 {
-    #[Route('/index', name: 'app_default_index', methods: ['GET'])]
+    #[Route('/', name: 'app_default_index', methods: ['GET'])]
     #[Cache(smaxage: 10)]
     public function index(): Response
     {
-        return $this->render('default/index.html.twig', ['active' => 'home']);
+        $data['active'] = 'home';
+        return $this->render('default/index.html.twig', $data);
     }
 }

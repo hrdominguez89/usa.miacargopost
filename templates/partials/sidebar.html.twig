@@ -36,65 +36,31 @@
                     <a class="nav-link menu-link {{ active is defined and active == 'home' ? 'active' }}" href="{{ path('app_default_index') }}" role="button"
                        aria-expanded="false"
                        aria-controls="sidebarLanding">
-                        <i class="ri-home-2-line"></i> <span>Inicio</span>
-                    </a>
-                </li>
-
-                {% if is_granted('ROLE_ADMIN') %}
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{ active is defined and active == 'dispatch' ? 'active' }}" href="{{ path('app_secure_dispatch_index') }}" role="button"
-                           aria-expanded="false" aria-controls="sidebarLanding">
-                            <i class="ri-inbox-archive-line"></i> <span>Despachos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{ active is defined and active == 'send' ? 'active' }}" href="{{ path('app_secure_send') }}" role="button"
-                           aria-expanded="false"
-                           aria-controls="sidebarLanding">
-                            <i class="ri-mail-send-line"></i> <span>Envíos</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link menu-link {{ active is defined and  active == 'office' ? 'active' }}" href="{{ path('app_secure_office_postal') }}" role="button"
-                           aria-expanded="false"
-                           aria-controls="sidebarLanding">
-                            <i class="ri-community-line"></i> <span>Oficinas</span>
-                        </a>
-                    </li>
-
-                {% endif %}
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ active is defined and active == 'carrier' ? 'active' }}" href="{{ path('app_secure_carrier') }}" role="button"
-                       aria-expanded="false"
-                       aria-controls="sidebarLanding">
-                        <i class="ri-truck-line"></i> <span>Transportes</span>
+                        <i class="ri-home-2-line"></i> <span>Home</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ active is defined and active == 'employee' ? 'active' }}" href="{{ path('app_secure_employee') }}" role="button"
+                    <a class="nav-link menu-link {{ active is defined and active == 'addresses' ? 'active' }}" href="{{ path('app_addresses_index') }}" role="button"
                        aria-expanded="false"
                        aria-controls="sidebarLanding">
-                        <i class="ri-team-line"></i> <span>Empleados</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ active is defined and active == 'customer' ? 'active' }}" href="{{ path('app_secure_customer') }}" role="button"
-                       aria-expanded="false"
-                       aria-controls="sidebarLanding">
-                        <i class="ri-user-heart-line"></i> <span>Clientes</span>
+                        <i class="ri-road-map-line"></i> <span>Addresses</span>
                     </a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ active is defined and active == 'S10' ? 'active' }}" href="{{ path('app_secure_upu') }}" role="button"
+                    <a class="nav-link menu-link {{ active is defined and active == 'domestic-prices' ? 'active' }}" href="{{ path('app_domestic_prices_index') }}" role="button"
                        aria-expanded="false"
                        aria-controls="sidebarLanding">
-                        <i class="ri-barcode-fill"></i> <span>Código S10</span>
+                        <i class="ri-money-dollar-circle-line"></i> <span>Domestic Prices</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ active is defined and active == 'tracking' ? 'active' }}" href="{{ path('app_tracking_index') }}" role="button"
+                       aria-expanded="false"
+                       aria-controls="sidebarLanding">
+                        <i class="ri-truck-line"></i> <span>Tracking</span>
                     </a>
                 </li>
 
@@ -102,7 +68,7 @@
                     <a class="nav-link menu-link {{ active is defined and active == 'reminder' ? 'active' }}" href="{{ path('app_logout') }}" role="button"
                        aria-expanded="false"
                        aria-controls="sidebarLanding">
-                        <i class="ri-calendar-check-line"></i> <span>Cerrar sesión</span>
+                        <i class="ri-door-closed-line"></i> <span>Cerrar sesión</span>
                     </a>
                 </li>
 
