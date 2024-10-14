@@ -34,16 +34,12 @@ class Team
     #[ORM\OneToMany(mappedBy: 'team', targetEntity: '\App\Entity\User', cascade: ['persist'])]
     private Collection $users;
 
-    #[ORM\OneToMany(mappedBy: 'team', targetEntity: 'App\Entity\Order', orphanRemoval: true)]
-    private Collection $orders;
-
     public function __construct()
     {
         $this->dateCreated = new \DateTime();
         $this->dateUpdated = new \DateTime();
 
         $this->users = new ArrayCollection();
-        $this->orders = new ArrayCollection();
     }
 
     /**
@@ -142,44 +138,6 @@ class Team
             // set the owning side to null (unless already changed)
             if ($user->getTeam() === $this) {
                 $user->setTeam(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Order>
-     */
-    public function getOrders(): Collection
-    {
-        return $this->orders;
-    }
-
-    /**
-     * @param Order $order
-     * @return $this
-     */
-    public function addOrder(Order $order): self
-    {
-        if (!$this->orders->contains($order)) {
-            $this->orders->add($order);
-            $order->setTeam($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param Order $order
-     * @return $this
-     */
-    public function removeOrder(Order $order): self
-    {
-        if ($this->orders->removeElement($order)) {
-            // set the owning side to null (unless already changed)
-            if ($order->getTeam() === $this) {
-                $order->setTeam(null);
             }
         }
 

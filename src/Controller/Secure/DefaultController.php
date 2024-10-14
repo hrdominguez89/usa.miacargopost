@@ -15,6 +15,6 @@ class DefaultController extends AbstractController
     public function index(): Response
     {
         $data['active'] = 'home';
-        return $this->render('default/index.html.twig', $data);
+        return $this->render('secure/default/index.html.twig', $data);
     }
 }

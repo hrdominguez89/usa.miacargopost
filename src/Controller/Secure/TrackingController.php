@@ -13,6 +13,6 @@ class TrackingController extends AbstractController
     public function index(): Response
     {
         $data['active'] = 'tracking';
-        return $this->render('tracking/index.html.twig', $data);
+        return $this->render('secure/tracking/index.html.twig', $data);
     }
 }

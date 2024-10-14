@@ -13,6 +13,6 @@ class DomesticPricesController extends AbstractController
     public function index(): Response
     {
         $data['active'] = 'domestic-prices';
-        return $this->render('domestic_prices/index.html.twig', $data);
+        return $this->render('secure/domestic_prices/index.html.twig', $data);
     }
 }

@@ -13,6 +13,6 @@ class AddressesController extends AbstractController
     public function index(): Response
     {
         $data['active'] = 'addresses';
-        return $this->render('addresses/index.html.twig', $data);
+        return $this->render('secure/addresses/index.html.twig', $data);
     }
 }
