@@ -13,7 +13,6 @@ class DefaultController extends AbstractController
     #[Cache(smaxage: 10)]
     public function index(): Response
     {
-        dd('aca');
         return $this->render('default/index.html.twig', ['active' => 'home']);
     }
 }

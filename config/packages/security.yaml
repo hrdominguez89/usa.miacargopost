@@ -15,10 +15,8 @@ security:
             memory:
                 users:
                     # ROLE_SUPER_ADMINISTRATOR
-                    anahuac: { password: '$2y$10$sAgZMYfGIuQ5SkgXOoRoeuBcsOQpvVJjORhT0i8I6EiBp/YvUQflC', roles: ROLE_SUPER_ADMINISTRATOR }
                     admin: { password: '$2y$10$sAgZMYfGIuQ5SkgXOoRoeuBcsOQpvVJjORhT0i8I6EiBp/YvUQflC', roles: ROLE_SUPER_ADMINISTRATOR } # admin
                     # ROLE_API
-                    admin_api: { password: '$2y$10$sAgZMYfGIuQ5SkgXOoRoeuBcsOQpvVJjORhT0i8I6EiBp/YvUQflC', roles: ROLE_API } # crm2022
 
         app_user_provider:
             entity:
@@ -33,12 +31,6 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-        api:
-            pattern: ^/api/*
-            provider: in_memory
-            http_basic:
-                realm: Secured Area
 
         main:
             lazy: true
@@ -68,8 +60,6 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/login, roles: PUBLIC_ACCESS, requires_channel: https }
-        - { path: ^/public/*, roles: PUBLIC_ACCESS, requires_channel: https }
-        - { path: ^/api/*, roles: ROLE_API, requires_channel: https }
         - { path: ^/secure/*, roles: ROLE_ADMIN, requires_channel: https }
 
 when@test:
