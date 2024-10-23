@@ -1,0 +1,109 @@
+{% extends 'partials/main.html.twig' %}
+
+{% block stylesheets %}
+
+{{ parent() }}
+
+<!-- jsvectormap css -->
+<link href="{{ asset('libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
+
+<!--Swiper slider css-->
+<link href="{{ asset('libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col">
+            <div class="h-100">
+                <div class="row mb-3 pb-1">
+                    <div class="col-12">
+                        <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                            <div class="flex-grow-1">
+                                <h2 class="fs-16 mb-1">Direcciones</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        {{ form_start(form) }}
+                        {{ form_row(form.streetAddress) }}
+                        {{ form_row(form.city) }}
+                        {{ form_row(form.state) }}
+                        {{ form_row(form.secondaryAddress) }}
+                        {{ form_row(form.ZIPCode) }}
+                        {{ form_row(form.ZIPPlus4) }}
+                        {{ form_row(form.firm) }}
+                        <button class="btn btn-primary">Validar Dirección</button>
+                        {{ form_end(form) }}
+                    </div>
+                    {% if result %}
+
+                    <div class="col-6 mt-3">
+                        {% if result.error is defined %}
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="text-danger">Dirección no encontrada</h2>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="card">
+                            <div class="card-body">
+                                <h2>Dirección validada:</h2>
+                                <ul>
+                                    <li><strong>Dirección:</strong> {{ result.address.streetAddress }}</li>
+                                    <li><strong>Ciudad:</strong> {{ result.address.city }}</li>
+                                    <li><strong>Estado:</strong> {{ result.address.state }}</li>
+                                    <li><strong>Código Postal:</strong> {{ result.address.ZIPCode }}</li>
+                                    <li><strong>Código Postal +4:</strong> {{ result.address.ZIPPlus4 }}</li>
+                                </ul>
+
+                                <h2>Información adicional:</h2>
+                                <ul>
+                                    <li><strong>Punto de Entrega:</strong> {{
+                                        result.additionalInfo.deliveryPoint }}</li>
+                                    <li><strong>Ruta del Transportista:</strong> {{
+                                        result.additionalInfo.carrierRoute }}</li>
+                                    <li><strong>Confirmación DPV:</strong> {{
+                                        result.additionalInfo.DPVConfirmation }}</li>
+                                    <li><strong>Negocio:</strong> {{ result.additionalInfo.business }}</li>
+                                    <li><strong>Punto de Entrega Central:</strong> {{
+                                        result.additionalInfo.centralDeliveryPoint
+                                        }}</li>
+                                    <li><strong>Vacante:</strong> {{ result.additionalInfo.vacant }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+
+                    </div>
+                </div>
+
+                {% endif %}
+
+            </div> <!-- end .h-100-->
+        </div> <!-- end col -->
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+
+<!-- apexcharts -->
+<script src="{{ asset('libs/apexcharts/apexcharts.min.js') }}"></script>
+
+<!-- Dashboard init -->
+<script src="{{ asset('js/pages/dashboard-crm.init.js') }}"></script>
+
+
+{% endblock %}

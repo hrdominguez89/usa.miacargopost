@@ -2,20 +2,20 @@
 
 {% block stylesheets %}
 
-    {{ parent() }}
+{{ parent() }}
 
-    <!-- jsvectormap css -->
-    <link href="{{ asset('libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css"/>
+<!-- jsvectormap css -->
+<link href="{{ asset('libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <!--Swiper slider css-->
-    <link href="{{ asset('libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css"/>
+<!--Swiper slider css-->
+<link href="{{ asset('libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
 
 {% endblock %}
 
 {% block content %}
 
-    <div class="container-fluid">
-                    
+<div class="container-fluid">
+
     <div class="row">
         <div class="col">
             <div class="h-100">
@@ -23,153 +23,188 @@
                     <div class="col-12">
                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                             <div class="flex-grow-1">
-                                <h4 class="fs-16 mb-1">Detalles del panel</h4>
-                                <p class="text-muted mb-0">
-                                    Jersey Post International Ltd
-                                </p>
+                                <h2 class="fs-16 mb-1">Direcciones</h2>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xxl-4">
-                        <div class="d-flex flex-column h-100">
-                            <div class="row h-100">
-                                <div class="col-12">
-                                    <div class="card card-animate">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-grow-1 overflow-hidden">
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        Crédito general
-                                                    </p>
-                                                </div>
-                                                <div class="flex-shrink-0">
-                                                    <h5 class="text-muted fs-14 mb-0" id="balance-percentage">80.01 %</h5>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex align-items-end justify-content-between mt-4">
-                                                <div>
-                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                                        $<span class="counter-value" data-target="9425.28" id="balance-counter">9425.28</span>
-                                                    </h4>
-                                                    <a href="" class="text-decoration-underline text-muted">
-                                                        Ver historial
-                                                    </a>
-                                                </div>
-                                                <div class="avatar-sm flex-shrink-0">
-                                                    <span class="avatar-title bg-primary-subtle rounded fs-3">
-                                                        <i class="ri-wallet-line"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div><!-- end card body -->
-                                    </div>
-                                </div> <!-- end col-->
-                            </div> <!-- end row-->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card card-animate">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        DESPACHOS
-                                                    </p>
-                                                    <h2 class="mt-4 ff-secondary fw-semibold">
-                                                        <span class="counter-value" data-target="17" id="dispatch-counter">17</span>
-                                                    </h2>
-                                                    <p class="mb-0 text-muted">
-                                                        <span class="badge bg-light text-danger mb-0" id="dispatch-badge"><i class="ri-arrow-down-line align-middle"></i> 37.78 %</span>
-                                                        <span id="dispatch-paragraph">vs. 45 mes anterior</span>
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                                            <i class="ri-inbox-archive-line"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- end card body -->
-                                    </div> <!-- end card-->
-                                </div> <!-- end col-->
-                                <div class="col-md-12">
-                                    <div class="card card-animate">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        PESO DEL LOS DESPACHOS
-                                                    </p>
-                                                    <h2 class="mt-4 ff-secondary fw-semibold">
-                                                        <span class="counter-value" data-target="3482.6" id="dispatch-kg-counter">3482.6</span>
-                                                    </h2>
-                                                    <p class="mb-0 text-muted">
-                                                        <span class="badge bg-light text-danger mb-0" id="dispatch-kg-badge"><i class="ri-arrow-down-line align-middle"></i> 39.31 %</span>
-                                                        <span id="dispatch-kg-paragraph">vs. 8860.39 mes anterior</span>
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                                            <i class="ri-vip-diamond-line"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- end card body -->
-                                    </div> <!-- end card-->
-                                </div> <!-- end col-->
-                                <div class="col-md-12">
-                                    <div class="card card-animate">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        ENVÍOS
-                                                    </p>
-                                                    <h2 class="mt-4 ff-secondary fw-semibold">
-                                                        <span class="counter-value" data-target="0" id="mailitem-counter">0</span>
-                                                    </h2>
-                                                    <p class="mb-0 text-muted">
-                                                        <span class="badge bg-light text-success mb-0" id="mailitem-badge">0 %</span>
-                                                        <span id="mailitem-paragraph"></span>
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                                            <i class="ri-mail-send-line"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- end card body -->
-                                    </div> <!-- end card-->
-                                </div> <!-- end col-->
-                            </div> <!-- end row-->
+                    <div class="col-6">
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            {{ form_label(form.originZIPCode) }}
+                            {{ form_widget(form.originZIPCode) }}
+                            {{ form_errors(form.originZIPCode) }}
                         </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.destinationZIPCode) }}
+                            {{ form_widget(form.destinationZIPCode) }}
+                            {{ form_errors(form.destinationZIPCode) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.weight) }}
+                            {{ form_widget(form.weight) }}
+                            {{ form_errors(form.weight) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.length) }}
+                            {{ form_widget(form.length) }}
+                            {{ form_errors(form.length) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.width) }}
+                            {{ form_widget(form.width) }}
+                            {{ form_errors(form.width) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.height) }}
+                            {{ form_widget(form.height) }}
+                            {{ form_errors(form.height) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.mailClass) }}
+                            {{ form_widget(form.mailClass) }}
+                            {{ form_errors(form.mailClass) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.processingCategory) }}
+                            {{ form_widget(form.processingCategory) }}
+                            {{ form_errors(form.processingCategory) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.rateIndicator) }}
+                            {{ form_widget(form.rateIndicator) }}
+                            {{ form_errors(form.rateIndicator) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.destinationEntryFacilityType) }}
+                            {{ form_widget(form.destinationEntryFacilityType) }}
+                            {{ form_errors(form.destinationEntryFacilityType) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.priceType) }}
+                            {{ form_widget(form.priceType) }}
+                            {{ form_errors(form.priceType) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.mailingDate) }}
+                            {{ form_widget(form.mailingDate) }}
+                            {{ form_errors(form.mailingDate) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.accountType) }}
+                            {{ form_widget(form.accountType) }}
+                            {{ form_errors(form.accountType) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.accountNumber) }}
+                            {{ form_widget(form.accountNumber) }}
+                            {{ form_errors(form.accountNumber) }}
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Buscar Precios</button>
+                        {{ form_end(form) }}
+                    </div>
+                    {% if result %}
+
+                    <div class="col-6 mt-3">
+                        {% if result.error is defined %}
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="text-danger">Precio no encontradO</h2>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="card">
+                            <div class="card-body">
+                                <h1>Resultados de la Búsqueda de Precios</h1>
+
+                                {% if result.error is defined %}
+                                <div class="alert alert-danger">
+                                    <strong>Error:</strong> {{ result.error }}
+                                </div>
+                                {% else %}
+                                <h2>Precio Base Total: {{ result.totalBasePrice | number_format(2) }} USD</h2>
+
+                                {% if result.rates is not empty %}
+                                <h2>Detalles de Tarifas:</h2>
+                                <ul>
+                                    {% for rate in result.rates %}
+                                    <li>
+                                        <h3>Descripción: {{ rate.description }}</h3>
+                                        <ul>
+                                            <li><strong>SKU:</strong> {{ rate.SKU }}</li>
+                                            <li><strong>Tipo de Precio:</strong> {{ rate.priceType }}</li>
+                                            <li><strong>Precio:</strong> {{ rate.price | number_format(2) }} USD</li>
+                                            <li><strong>Peso:</strong> {{ rate.weight }} lbs</li>
+                                            <li><strong>Peso Dimensional:</strong> {{ rate.dimWeight }} lbs</li>
+                                            <li><strong>Fecha de Inicio:</strong> {{ rate.startDate }}</li>
+                                            <li><strong>Clase de Correo:</strong> {{ rate.mailClass }}</li>
+                                            <li><strong>Zona:</strong> {{ rate.zone }}</li>
+                                            <li><strong>Categoría de Procesamiento:</strong> {{ rate.processingCategory
+                                                }}</li>
+                                            <li><strong>Tipo de Instalación de Entrada:</strong> {{
+                                                rate.destinationEntryFacilityType }}</li>
+                                            <li><strong>Indicador de Tarifa:</strong> {{ rate.rateIndicator }}</li>
+                                            {% if rate.warnings is not empty %}
+                                            <li>
+                                                <strong>Advertencias:</strong>
+                                                <ul>
+                                                    {% for warning in rate.warnings %}
+                                                    <li>{{ warning.warningCode }}: {{ warning.warningDescription }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                            {% endif %}
+                                        </ul>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                                {% else %}
+                                <p>No se encontraron tarifas para los criterios proporcionados.</p>
+                                {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+
                     </div>
                 </div>
+
+                {% endif %}
+
             </div> <!-- end .h-100-->
         </div> <!-- end col -->
     </div>
 
-                </div>
+</div>
 
 {% endblock %}
 
 {% block javascripts %}
 
-    {{ parent() }}
+{{ parent() }}
 
-    <!-- apexcharts -->
-    <script src="{{ asset('libs/apexcharts/apexcharts.min.js') }}"></script>
+<!-- apexcharts -->
+<script src="{{ asset('libs/apexcharts/apexcharts.min.js') }}"></script>
 
-    <!-- Dashboard init -->
-    <script src="{{ asset('js/pages/dashboard-crm.init.js') }}"></script>
+<!-- Dashboard init -->
+<script src="{{ asset('js/pages/dashboard-crm.init.js') }}"></script>
 
 
 {% endblock %}

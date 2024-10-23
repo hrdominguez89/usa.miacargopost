@@ -21,6 +21,7 @@
         "picqer/php-barcode-generator": "^2.4",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "6.2.*",
+        "symfony/cache": "6.2.*",
         "symfony/console": "6.2.*",
         "symfony/dotenv": "6.2.*",
         "symfony/expression-language": "6.2.*",

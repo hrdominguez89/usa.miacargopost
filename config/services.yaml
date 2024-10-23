@@ -4,10 +4,6 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    upload_directory: '%kernel.project_dir%/public/uploads'
-    voucher_directory: '%kernel.project_dir%/public/uploads/payments/voucher'
-    invoice_directory: '%kernel.project_dir%/public/uploads/payments/invoice'
-    fiscalinvoice_directory: '%kernel.project_dir%/public/uploads/payments/fiscalinvoice'
 
 services:
     # default configuration for services in *this* file
@@ -15,8 +11,6 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind: # defines the scalar arguments once and apply them to any service defined/created in this file
-            string $invoiceDirectory: '%invoice_directory%'
-            string $fiscalInvoiceDirectory: '%fiscalinvoice_directory%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -29,6 +23,3 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    App\Service\FileUploaderService:
-        arguments:
-            $targetDirectory: '%voucher_directory%'

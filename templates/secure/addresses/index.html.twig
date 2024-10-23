@@ -2,20 +2,20 @@
 
 {% block stylesheets %}
 
-    {{ parent() }}
+{{ parent() }}
 
-    <!-- jsvectormap css -->
-    <link href="{{ asset('libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css"/>
+<!-- jsvectormap css -->
+<link href="{{ asset('libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <!--Swiper slider css-->
-    <link href="{{ asset('libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css"/>
+<!--Swiper slider css-->
+<link href="{{ asset('libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
 
 {% endblock %}
 
 {% block content %}
 
-    <div class="container-fluid">
-                    
+<div class="container-fluid">
+
     <div class="row">
         <div class="col">
             <div class="h-100">
@@ -23,131 +23,78 @@
                     <div class="col-12">
                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                             <div class="flex-grow-1">
-                                <h4 class="fs-16 mb-1">Detalles del panel</h4>
-                                <p class="text-muted mb-0">
-                                    Jersey Post International Ltd
-                                </p>
+                                <h2 class="fs-16 mb-1">Direcciones</h2>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
-                    <div class="col-xxl-4">
+                    <div class="col-12">
                         <div class="d-flex flex-column h-100">
-                            <div class="row h-100">
-                                <div class="col-12">
-                                    <div class="card card-animate">
-                                        <div class="card-body">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-grow-1 overflow-hidden">
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        Crédito general
-                                                    </p>
-                                                </div>
-                                                <div class="flex-shrink-0">
-                                                    <h5 class="text-muted fs-14 mb-0" id="balance-percentage">80.01 %</h5>
-                                                </div>
-                                            </div>
-                                            <div class="d-flex align-items-end justify-content-between mt-4">
-                                                <div>
-                                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                                        $<span class="counter-value" data-target="9425.28" id="balance-counter">9425.28</span>
-                                                    </h4>
-                                                    <a href="" class="text-decoration-underline text-muted">
-                                                        Ver historial
-                                                    </a>
-                                                </div>
-                                                <div class="avatar-sm flex-shrink-0">
-                                                    <span class="avatar-title bg-primary-subtle rounded fs-3">
-                                                        <i class="ri-wallet-line"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div><!-- end card body -->
-                                    </div>
-                                </div> <!-- end col-->
-                            </div> <!-- end row-->
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="card card-animate">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        DESPACHOS
-                                                    </p>
-                                                    <h2 class="mt-4 ff-secondary fw-semibold">
-                                                        <span class="counter-value" data-target="17" id="dispatch-counter">17</span>
-                                                    </h2>
-                                                    <p class="mb-0 text-muted">
-                                                        <span class="badge bg-light text-danger mb-0" id="dispatch-badge"><i class="ri-arrow-down-line align-middle"></i> 37.78 %</span>
-                                                        <span id="dispatch-paragraph">vs. 45 mes anterior</span>
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                                            <i class="ri-inbox-archive-line"></i>
+                                <div class="col-4">
+                                    <a href="{{ path('app_addresses_address') }}">
+                                        <div class="card card-animate" style="height: 140px;">
+                                            <div class="card-body">
+                                                <div class="text-center">
+                                                    <div>
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0 mt-2">
+                                                            Validar dirección
+                                                        </p>
+                                                    </div>
+                                                    <div class="mt-4">
+                                                        <span class="fs-2">
+                                                            <i class="ri-road-map-line"></i>
                                                         </span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div><!-- end card body -->
-                                    </div> <!-- end card-->
+                                            </div><!-- end card body -->
+                                        </div> <!-- end card-->
+                                    </a>
                                 </div> <!-- end col-->
-                                <div class="col-md-12">
-                                    <div class="card card-animate">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        PESO DEL LOS DESPACHOS
-                                                    </p>
-                                                    <h2 class="mt-4 ff-secondary fw-semibold">
-                                                        <span class="counter-value" data-target="3482.6" id="dispatch-kg-counter">3482.6</span>
-                                                    </h2>
-                                                    <p class="mb-0 text-muted">
-                                                        <span class="badge bg-light text-danger mb-0" id="dispatch-kg-badge"><i class="ri-arrow-down-line align-middle"></i> 39.31 %</span>
-                                                        <span id="dispatch-kg-paragraph">vs. 8860.39 mes anterior</span>
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                                            <i class="ri-vip-diamond-line"></i>
+                                <div class="col-4">
+                                    <a href="{{ path('app_addresses_city_and_state') }}">
+                                        <div class="card card-animate" style="height: 140px;">
+                                            <div class="card-body">
+                                                <div class="text-center">
+                                                    <div>
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0 mt-2">
+                                                            Obtener Ciudad y Estado por Código Postal
+                                                        </p>
+                                                    </div>
+                                                    <div class="mt-4">
+                                                        <span class="fs-2">
+                                                            <i class="ri-treasure-map-line"></i>
                                                         </span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div><!-- end card body -->
-                                    </div> <!-- end card-->
+                                            </div><!-- end card body -->
+                                        </div> <!-- end card-->
+                                    </a>
                                 </div> <!-- end col-->
-                                <div class="col-md-12">
-                                    <div class="card card-animate">
-                                        <div class="card-body">
-                                            <div class="d-flex justify-content-between">
-                                                <div>
-                                                    <p class="text-uppercase fw-medium text-muted text-truncate mb-0">
-                                                        ENVÍOS
-                                                    </p>
-                                                    <h2 class="mt-4 ff-secondary fw-semibold">
-                                                        <span class="counter-value" data-target="0" id="mailitem-counter">0</span>
-                                                    </h2>
-                                                    <p class="mb-0 text-muted">
-                                                        <span class="badge bg-light text-success mb-0" id="mailitem-badge">0 %</span>
-                                                        <span id="mailitem-paragraph"></span>
-                                                    </p>
-                                                </div>
-                                                <div>
-                                                    <div class="avatar-sm flex-shrink-0">
-                                                        <span class="avatar-title bg-info-subtle rounded-circle fs-2">
+                                <div class="col-4">
+                                    <a href="{{ path('app_addresses_zip_code') }}">
+                                        <div class="card card-animate" style="height: 140px;">
+                                            <div class="card-body">
+                                                <div class="text-center">
+                                                    <div>
+                                                        <p
+                                                            class="text-uppercase fw-medium text-muted text-truncate mb-0 mt-2">
+                                                            Obtener datos postales por dirección
+                                                        </p>
+                                                    </div>
+                                                    <div class="mt-4">
+                                                        <span class="fs-2">
                                                             <i class="ri-mail-send-line"></i>
                                                         </span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div><!-- end card body -->
-                                    </div> <!-- end card-->
+                                            </div><!-- end card body -->
+                                        </div> <!-- end card-->
+                                    </a>
                                 </div> <!-- end col-->
                             </div> <!-- end row-->
                         </div>
@@ -157,19 +104,19 @@
         </div> <!-- end col -->
     </div>
 
-                </div>
+</div>
 
 {% endblock %}
 
 {% block javascripts %}
 
-    {{ parent() }}
+{{ parent() }}
 
-    <!-- apexcharts -->
-    <script src="{{ asset('libs/apexcharts/apexcharts.min.js') }}"></script>
+<!-- apexcharts -->
+<script src="{{ asset('libs/apexcharts/apexcharts.min.js') }}"></script>
 
-    <!-- Dashboard init -->
-    <script src="{{ asset('js/pages/dashboard-crm.init.js') }}"></script>
+<!-- Dashboard init -->
+<script src="{{ asset('js/pages/dashboard-crm.init.js') }}"></script>
 
 
 {% endblock %}

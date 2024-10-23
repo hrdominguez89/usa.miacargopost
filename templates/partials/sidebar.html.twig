@@ -21,7 +21,7 @@
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
-                id="vertical-hover">
+            id="vertical-hover">
             <i class="ri-record-circle-line"></i>
         </button>
     </div>
@@ -33,41 +33,57 @@
                 <li class="menu-title"><span>Menu</span></li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ active is defined and active == 'home' ? 'active' }}" href="{{ path('app_default_index') }}" role="button"
-                       aria-expanded="false"
-                       aria-controls="sidebarLanding">
-                        <i class="ri-home-2-line"></i> <span>Home</span>
+                    <a class="nav-link menu-link {{ active is defined and active == 'home' ? 'active' }}"
+                        href="{{ path('app_default_index') }}" role="button" aria-expanded="false"
+                        aria-controls="sidebarLanding">
+                        <i class="ri-home-2-line"></i> <span>Inicio</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ active is defined and active == 'addresses' ? 'active' }}" href="{{ path('app_addresses_index') }}" role="button"
-                       aria-expanded="false"
-                       aria-controls="sidebarLanding">
-                        <i class="ri-road-map-line"></i> <span>Addresses</span>
+                    <a class="nav-link menu-link {{ active is defined and active == 'addresses' ? 'active' }}"
+                        href="#sidebarAddress" data-bs-toggle="collapse" role="button" aria-expanded="false"
+                        aria-controls="sidebarAddress">
+                        <i class="ri-road-map-line"></i> <span>Direcciones</span>
                     </a>
+                    <div class="collapse menu-dropdown dropdown-custom-right" id="sidebarAddress">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ path('app_addresses_address') }}" class="nav-link"
+                                    data-key="t-chat">Validar dirección</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('app_addresses_city_and_state') }}" class="nav-link"
+                                    data-key="t-chat">Obtener ciudad y estado por Código Postal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('app_addresses_zip_code') }}" class="nav-link"
+                                    data-key="t-chat">Obtener datos postales por dirección</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                
+
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ active is defined and active == 'domestic-prices' ? 'active' }}" href="{{ path('app_domestic_prices_index') }}" role="button"
-                       aria-expanded="false"
-                       aria-controls="sidebarLanding">
-                        <i class="ri-money-dollar-circle-line"></i> <span>Domestic Prices</span>
-                    </a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link menu-link {{ active is defined and active == 'tracking' ? 'active' }}" href="{{ path('app_tracking_index') }}" role="button"
-                       aria-expanded="false"
-                       aria-controls="sidebarLanding">
-                        <i class="ri-truck-line"></i> <span>Tracking</span>
+                    <a class="nav-link menu-link {{ active is defined and active == 'domestic-prices' ? 'active' }}"
+                        href="{{ path('app_domestic_prices_index') }}" role="button" aria-expanded="false"
+                        aria-controls="sidebarLanding">
+                        <i class="ri-money-dollar-circle-line"></i> <span>Precios locales</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ active is defined and active == 'reminder' ? 'active' }}" href="{{ path('app_logout') }}" role="button"
-                       aria-expanded="false"
-                       aria-controls="sidebarLanding">
+                    <a class="nav-link menu-link {{ active is defined and active == 'tracking' ? 'active' }}"
+                        href="{{ path('app_tracking_index') }}" role="button" aria-expanded="false"
+                        aria-controls="sidebarLanding">
+                        <i class="ri-truck-line"></i> <span>Seguimiento</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ active is defined and active == 'reminder' ? 'active' }}"
+                        href="{{ path('app_logout') }}" role="button" aria-expanded="false"
+                        aria-controls="sidebarLanding">
                         <i class="ri-door-closed-line"></i> <span>Cerrar sesión</span>
                     </a>
                 </li>
